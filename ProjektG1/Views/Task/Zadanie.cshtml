@@ -6,11 +6,23 @@
 }
 
 <h2>Zadanie</h2>
-<ul>
-    @foreach (Task item in ViewBag.Zadanie)
-    {
+
+@foreach (Task item in ViewBag.Zadanie)
+{
+    <ul>
+        @item.Tytul
         <li>
-            @item.Komentarz
+            Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
         </li>
-    }
-</ul>
+        <li>
+            Data dodania: @item.DataDodania
+        </li>
+        <li>
+            Termin: @item.Termin
+        </li>
+        <li>
+            Komentarz: @item.Komentarz
+        </li>
+        
+    </ul>
+}

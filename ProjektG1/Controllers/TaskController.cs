@@ -14,20 +14,16 @@ namespace ProjektG1.Controllers
         public ViewResult Zadanie()
         {
             var taskContext = new TaskContext();
+            var ListaTaskow = new List<Task>();
             //Task task = taskContext.Tasks.Single(tk => tk.Tytul =="Zadanie");
             //var task = taskContext.Tasks.Single(tk => tk.ID == taskId);
-            ViewBag.Zadanie = new List<Task>()
+
+            foreach (var task in taskContext.Tasks)
             {
-                new Task()
-                {
-                    ID = 1,
-                    Tytul = "Zadanie",
-                    DataDodania = DateTime.Now,
-                    OsobaOdpowiedzialna = "mpiatkowski",
-                    Komentarz = "test mvc",
-                    Termin = DateTime.Today
-                }
-            };
+                ListaTaskow.Add(task);
+            }
+
+            ViewBag.Zadanie = ListaTaskow;
 
             return View();
         }
