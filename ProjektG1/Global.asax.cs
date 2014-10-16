@@ -15,7 +15,7 @@ namespace ProjektG1
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<ProjektG1.Models.TaskContext>(null);
+            //Database.SetInitializer<ProjektG1.Models.TaskContext>(null);
 
             AreaRegistration.RegisterAllAreas();
             WebApiConfig.Register(GlobalConfiguration.Configuration);

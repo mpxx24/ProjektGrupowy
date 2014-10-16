@@ -11,12 +11,25 @@ namespace ProjektG1.Controllers
     public class TaskController : Controller
     {
         
-        public ActionResult Zadanie(int id)
+        public ViewResult Zadanie()
         {
             var taskContext = new TaskContext();
-            var task = taskContext.Tasks.Single(tsk => tsk.ID == id);
+            //Task task = taskContext.Tasks.Single(tk => tk.Tytul =="Zadanie");
+            //var task = taskContext.Tasks.Single(tk => tk.ID == taskId);
+            ViewBag.Zadanie = new List<Task>()
+            {
+                new Task()
+                {
+                    ID = 1,
+                    Tytul = "Zadanie",
+                    DataDodania = DateTime.Now,
+                    OsobaOdpowiedzialna = "mpiatkowski",
+                    Komentarz = "test mvc",
+                    Termin = DateTime.Today
+                }
+            };
 
-            return View(task);
+            return View();
         }
 
     }
