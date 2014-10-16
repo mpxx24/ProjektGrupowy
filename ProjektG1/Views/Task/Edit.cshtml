@@ -1,0 +1,17 @@
+﻿@model ProjektG1.Models.Task
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Task"))
+{
+    <text>Tytuł</text>
+    @Html.TextBoxFor(m => m.Tytul)
+    <text>Osoba Odpowiedzialna</text>
+    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna)
+    <text>komentarz</text>
+    @Html.TextBoxFor(m => m.Komentarz)
+}

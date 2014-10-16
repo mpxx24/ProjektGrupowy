@@ -68,5 +68,20 @@ namespace ProjektG1.Controllers
             return RedirectToAction("Zadanie", "Task");
         }
 
+        public ActionResult EdytujTask(Task zadanie)
+        {
+            //??
+            ViewData["ZadDoEdycji"] = new Task();
+            
+            return View();
+        }
+
+        public ActionResult Edit()
+        {
+
+
+            return RedirectToAction("Zadanie", "Task");
+        }
+
     }
 }
