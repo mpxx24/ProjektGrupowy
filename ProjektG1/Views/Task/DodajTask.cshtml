@@ -1,0 +1,22 @@
+﻿@model ProjektG1.Models.Task
+
+@{
+    ViewBag.Title = "DodajTask";
+}
+
+<h2>DodajTask</h2>
+
+@using (Html.BeginForm("Create", "Task"))
+{
+    <text>Tytuł</text>
+    @Html.TextBoxFor(m => m.Tytul)
+    <text>OsobaOdpowiedzialna</text>
+    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna)
+    <text>Komentarz</text>
+    @Html.TextBoxFor(m => m.Komentarz)
+    <input type="submit" value="Create " />
+}
+
+<p>
+    @Html.ActionLink("Powrót", "Zadanie")
+</p>
