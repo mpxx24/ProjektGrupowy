@@ -16,8 +16,6 @@ namespace ProjektG1.Controllers
         {
             var taskContext = new TaskContext();
             var listaTaskow = new List<Task>();
-            //Task task = taskContext.Tasks.Single(tk => tk.Tytul =="Zadanie");
-            //var task = taskContext.Tasks.Single(tk => tk.ID == taskId);
 
             foreach (var task in taskContext.Tasks)
             {
@@ -28,22 +26,6 @@ namespace ProjektG1.Controllers
 
             return View();
         }
-
-        ////public ActionResult DodajTask(string tytul, string osobaOdp, DateTime termin, string komentarz)
-        ////{
-        ////    var context = new TaskContext();
-        ////    var nowyTask = new Task()
-        ////    {
-        ////        Tytul = tytul,
-        ////        DataDodania = DateTime.Now,
-        ////        OsobaOdpowiedzialna = osobaOdp,
-        ////        Termin = termin,
-        ////        Komentarz = komentarz
-        ////    };
-        ////    context.Tasks.Add(nowyTask);
-        ////    context.SaveChanges();
-        ////}
-        
         
         public ActionResult DodajTask()
         {
@@ -68,18 +50,32 @@ namespace ProjektG1.Controllers
             return RedirectToAction("Zadanie", "Task");
         }
 
-        public ActionResult EdytujTask(Task zadanie)
+        public ActionResult EdytujTask(string str)
         {
-            //??
-            ViewData["ZadDoEdycji"] = new Task();
+            //
+            // w bazie mogą zdarzyć się taski z tym samym tytułem! need fix
+            //
+            var context = new TaskContext();
+            var doEdycji = context.Tasks.Single(x => x.Tytul == str);
+
+            ViewBag.Tytul = doEdycji.Tytul;
+            ViewBag.OsobaOdpowiedzialna = doEdycji.OsobaOdpowiedzialna;
+            ViewBag.Komentarz = doEdycji.Komentarz;
+            ViewBag.DataDonania = doEdycji.DataDodania;
+            ViewBag.Termin = doEdycji.Termin;
             
+            //
+            //think! czy potrzebny mi jest tutaj view ?
+            //
             return View();
         }
 
         public ActionResult Edit()
         {
-
-
+            
+            //
+            //think! czy to nie powinno być w EdytujTask ?
+            //
             return RedirectToAction("Zadanie", "Task");
         }
 

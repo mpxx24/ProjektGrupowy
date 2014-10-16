@@ -9,9 +9,9 @@
 @using (Html.BeginForm("Edit", "Task"))
 {
     <text>Tytuł</text>
-    @Html.TextBoxFor(m => m.Tytul)
+    @Html.TextBoxFor(m => m.Tytul, new {@Value = @ViewBag.Tytuł})
     <text>Osoba Odpowiedzialna</text>
-    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna)
+    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new {@value = ViewBag.OsobaOdpowiedzialna})
     <text>komentarz</text>
-    @Html.TextBoxFor(m => m.Komentarz)
+    @Html.TextBoxFor(m => m.Komentarz, new {@Value = ViewBag.Komentarz})
 }
