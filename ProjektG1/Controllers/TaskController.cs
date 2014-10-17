@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.Mvc;
 using ProjektG1.Models;
@@ -50,14 +51,12 @@ namespace ProjektG1.Controllers
             return RedirectToAction("Zadanie", "Task");
         }
 
-        public ActionResult EdytujTask(string str)
+        public ActionResult EdytujTask(int id)
         {
-            //
-            // w bazie mogą zdarzyć się taski z tym samym tytułem! need fix
-            //
             var context = new TaskContext();
-            var doEdycji = context.Tasks.Single(x => x.Tytul == str);
+            var doEdycji = context.Tasks.Single(x => x.ID == id);
 
+            ViewBag.Id = id;
             ViewBag.Tytul = doEdycji.Tytul;
             ViewBag.OsobaOdpowiedzialna = doEdycji.OsobaOdpowiedzialna;
             ViewBag.Komentarz = doEdycji.Komentarz;
@@ -65,10 +64,19 @@ namespace ProjektG1.Controllers
             ViewBag.Termin = doEdycji.Termin;
             return View();
         }
-
-        public ActionResult Edit(string str)
+    
+        [HttpPost]
+        public ActionResult Edit(int id)
         {
-            
+            var context = new TaskContext();
+            var edytowanyTask = context.Tasks.Single(x => x.ID == id);
+            edytowanyTask.ID = id;
+            edytowanyTask.Tytul = Request["Tytul"];
+            edytowanyTask.OsobaOdpowiedzialna = Request["OsobaOdpowiedzialna"];
+            edytowanyTask.Komentarz = Request["Komentarz"];
+            edytowanyTask.DataDodania = DateTime.Now;
+            edytowanyTask.Termin = DateTime.Today;
+            context.SaveChanges();
             
             return RedirectToAction("Zadanie", "Task");
         }

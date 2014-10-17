@@ -6,15 +6,15 @@
 
 <h2>EdytujTask</h2>
 
-@using (Html.BeginForm("Edit", "Task"))
+@using (Html.BeginForm("Edit", "Task", new {@id = ViewBag.Id}))
 {
     <text>Tytuł</text>
-    @Html.TextBoxFor(m => m.Tytul, new { @Value = @ViewBag.Tytuł })
+    @Html.TextBoxFor(m => m.Tytul, new { @Value = @ViewBag.Tytul })
     <text>Osoba Odpowiedzialna</text>
-    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new { @value = ViewBag.OsobaOdpowiedzialna })
+    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new { @Value = ViewBag.OsobaOdpowiedzialna })
     <text>komentarz</text>
     @Html.TextBoxFor(m => m.Komentarz, new { @Value = ViewBag.Komentarz })
-    <input type="submit" value="Edit" />
+    <input type="submit" value="Save" />
 }
 
 <p>

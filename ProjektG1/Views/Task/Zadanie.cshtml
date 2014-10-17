@@ -25,12 +25,20 @@
             Komentarz: @item.Komentarz
         </li>
     </ul>
-    using (Html.BeginForm("Delete", "Task", new {id = item.ID}))
-     {
-         <input type="submit" name="ButtonUsun" value="usuń" id=@item.ID />
-     }
+    <span>
+        @using (Html.BeginForm("Delete", "Task", new {id = item.ID}))
+        {
+            <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
+        }
+        @* przenieś do view edycji *@
+        @using (Html.BeginForm("EdytujTask", "Task", new {id = item.ID}))
+        { 
+            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID/>
+        }
+    </span>
 }
+
 @using (Html.BeginForm("DodajTask","Task"))
 {
-  <input type="submit" value="dodaj"/>
+  <input type="submit" value="Dodaj"/>
 }
