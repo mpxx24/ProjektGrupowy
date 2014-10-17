@@ -63,19 +63,25 @@ namespace ProjektG1.Controllers
             ViewBag.Komentarz = doEdycji.Komentarz;
             ViewBag.DataDonania = doEdycji.DataDodania;
             ViewBag.Termin = doEdycji.Termin;
-            
-            //
-            //think! czy potrzebny mi jest tutaj view ?
-            //
             return View();
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(string str)
         {
             
-            //
-            //think! czy to nie powinno być w EdytujTask ?
-            //
+            
+            return RedirectToAction("Zadanie", "Task");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            //int uId = Request["input"].Where()
+            var context = new TaskContext();
+            var doUsuniecia = context.Tasks.Single(z => z.ID == id);
+            context.Tasks.Remove(doUsuniecia);
+            context.SaveChanges();
+            
             return RedirectToAction("Zadanie", "Task");
         }
 

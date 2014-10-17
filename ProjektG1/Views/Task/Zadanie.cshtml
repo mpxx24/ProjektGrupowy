@@ -25,6 +25,10 @@
             Komentarz: @item.Komentarz
         </li>
     </ul>
+    using (Html.BeginForm("Delete", "Task", new {id = item.ID}))
+     {
+         <input type="submit" name="ButtonUsun" value="usuń" id=@item.ID />
+     }
 }
 @using (Html.BeginForm("DodajTask","Task"))
 {

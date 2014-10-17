@@ -153,7 +153,7 @@
     <Content Include="Views\Task\DodajTask.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Task\Edit.cshtml" />
+    <Content Include="Views\Task\EdytujTask.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
