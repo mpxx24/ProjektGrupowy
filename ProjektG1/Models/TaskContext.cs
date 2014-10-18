@@ -9,5 +9,6 @@ namespace ProjektG1.Models
     public class TaskContext : DbContext
     {
         public DbSet<Task> Tasks { get; set; }
+        //public DbSet<User> Users { get; set; }
     }
 }
