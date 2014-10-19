@@ -5,7 +5,7 @@
 
 <h2>Nic tu nie ma</h2>
 
-@*@using (Html.BeginForm("DodajUzytkownika", "Home"))
+@using (Html.BeginForm("DodajUzytkownika", "Home"))
 {
     <text>Login:</text>
     @Html.TextBoxFor(m => m.Username);
@@ -14,5 +14,5 @@
     @Html.PasswordFor(m => m.Password);
     <input type="submit" value="Dodaj Użytkownika"/>
 }
-<br/>*@
+<br/>
 @Html.ActionLink("lista tasków", "Zadanie", "Task")

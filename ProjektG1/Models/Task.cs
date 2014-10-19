@@ -17,7 +17,6 @@ namespace ProjektG1.Models
         public DateTime DataDodania { get; set; }
         public DateTime Termin { get; set; }
         public string Komentarz { get; set; }
-        //coś mi się tu nie podoba...
-        //public User Osoba { get; set; }
+
     }
 }

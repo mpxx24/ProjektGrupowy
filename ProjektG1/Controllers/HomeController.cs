@@ -17,19 +17,19 @@ namespace ProjektG1.Controllers
             return View();
         }
 
-        //public ActionResult DodajUzytkownika()
-        //{
-        //    var context = new TaskContext();
-        //    var nowyUser = new User()
-        //    {
-        //        Username = Request["Username"],
-        //        Password = Request["Password"]
-        //    };
-        //    context.Users.Add(nowyUser);
-        //    context.SaveChanges();
+        public ActionResult DodajUzytkownika()
+        {
+            var context = new TaskContext();
+            var nowyUser = new User()
+            {
+                Username = Request["Username"],
+                Password = Request["Password"]
+            };
+            context.Users.Add(nowyUser);
+            context.SaveChanges();
 
-        //    return RedirectToAction("Index");
-        //}
+            return RedirectToAction("Index");
+        }
 
     }
 }

@@ -12,8 +12,7 @@ namespace ProjektG1.Models
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        //trzeba by to sprawdzić
-        //public Task TaskId { get; set; }
+        public List<Task> Task { get; set; } 
 
     }
 }
