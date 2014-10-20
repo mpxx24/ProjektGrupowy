@@ -1,18 +1,9 @@
 ﻿@model ProjektG1.Models.User
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
 }
 
 <h2>Nic tu nie ma</h2>
 
-@using (Html.BeginForm("DodajUzytkownika", "Home"))
-{
-    @Html.LabelFor(m => m.Username)
-    @Html.TextBoxFor(m => m.Username);
-    
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password);
-    <input type="submit" value="Dodaj Użytkownika"/>
-}
-<br/>
-@Html.ActionLink("lista tasków", "Zadanie", "Task")
+

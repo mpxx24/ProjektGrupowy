@@ -11,11 +11,60 @@ namespace ProjektG1.Models
     {
         [Key]
         public int UserId { get; set; }
-        [DisplayName("Nazwa Uzytkownika")]
+
+        [DisplayName("Nazwa Użytkownika")]
+        [Required(ErrorMessage = "pole wymagane")]
         public string Username { get; set; }
+
         [DisplayName("Hasło")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "pole wymagane")]
         public string Password { get; set; }
+
         public List<Task> Task { get; set; } 
+
+        [DisplayName("Pamiętaj mnie")]
+        public bool RememberMe { get; set; }
+
+
+        public bool IsValid(string username, string password)
+        {
+            var context = new TaskContext();
+            var slownik = new Dictionary<string, string>();
+
+            foreach (var user in context.Users)
+            {
+                if (user.Username != null && user.Password != null)
+                {
+                    slownik.Add(user.Username, user.Password);
+                    //if (user.Username.Equals(username) && user.Password.Equals(password))
+                    //{
+                    //    return true;
+                    //}
+                    //else
+                    //{
+                    //    return false;
+                    //}
+                }
+            }
+
+            if (slownik.ContainsKey(username))
+            {
+                string value = slownik[username];
+                if (value == password)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     }
 }
