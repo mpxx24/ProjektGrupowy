@@ -7,10 +7,10 @@
 
 @using (Html.BeginForm("DodajUzytkownika", "Home"))
 {
-    <text>Login:</text>
+    @Html.LabelFor(m => m.Username)
     @Html.TextBoxFor(m => m.Username);
     
-    <text>Hasło:</text>
+    @Html.LabelFor(m => m.Password)
     @Html.PasswordFor(m => m.Password);
     <input type="submit" value="Dodaj Użytkownika"/>
 }

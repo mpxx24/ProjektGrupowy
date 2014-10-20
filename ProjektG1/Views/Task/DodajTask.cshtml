@@ -8,11 +8,11 @@
 
 @using (Html.BeginForm("Create", "Task"))
 {
-    <text>Tytuł</text>
+    @Html.LabelFor(m => m.Tytul)
     @Html.TextBoxFor(m => m.Tytul)
-    <text>OsobaOdpowiedzialna</text>
+    @Html.LabelFor(m => m.OsobaOdpowiedzialna)
     @Html.TextBoxFor(m => m.OsobaOdpowiedzialna)
-    <text>Komentarz</text>
+    @Html.LabelFor(m => m.Komentarz)
     @Html.TextBoxFor(m => m.Komentarz)
     <input type="submit" value="Create " />
     

@@ -8,11 +8,11 @@
 
 @using (Html.BeginForm("Edit", "Task", new {@id = ViewBag.Id}))
 {
-    <text>Tytuł</text>
+    @Html.LabelFor(m => m.Tytul)
     @Html.TextBoxFor(m => m.Tytul, new { @Value = @ViewBag.Tytul })
-    <text>Osoba Odpowiedzialna</text>
+    @Html.LabelFor(m => m.OsobaOdpowiedzialna)
     @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new { @Value = ViewBag.OsobaOdpowiedzialna })
-    <text>komentarz</text>
+    @Html.LabelFor(m =>m.Komentarz)
     @Html.TextBoxFor(m => m.Komentarz, new { @Value = ViewBag.Komentarz })
     <input type="submit" value="Save" />
 }
