@@ -38,15 +38,27 @@ namespace ProjektG1.Controllers
         public ActionResult Create()
         {
             var taskContext = new TaskContext();
+            var mojUser = Request["OsobaOdpowiedzialna"];
+            var q = from u in taskContext.Users
+                    where u.Username == mojUser
+                    select u.UserId;
+            var id = q.Single();
+
+
             var noweZadanie = new Task()
             {
+                //UserId = id,
                 Tytul = Request["Tytul"],
-                OsobaOdpowiedzialna = Request["OsobaOdpowiedzialna"],
+                OsobaOdpowiedzialna = Request["OsobaOdpowiedzialna"], //taskContext.Users.Where(x => x.UserId == id).ToString(),
+                User = taskContext.Users.Single(x => x.UserId == id),
                 Komentarz = Request["Komentarz"],
                 DataDodania = DateTime.Now,
                 Termin = DateTime.Today
             };
             taskContext.Tasks.Add(noweZadanie);
+            //User usr = new User();
+            //usr.Tasks.Add(noweZadanie);
+            //taskContext.Users.Add(usr);
             taskContext.SaveChanges();
             return RedirectToAction("Zadanie", "Task");
         }

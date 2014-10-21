@@ -13,16 +13,24 @@ namespace ProjektG1.Models
     {
         [Key]
         public int ID { get; set; }
+
         [DisplayName("Nazwa zadania")]
         public string Tytul { get; set; }
+
         [DisplayName("Osoba odpowiedzialna za zadanie")]
         public string OsobaOdpowiedzialna { get; set; }
+
         [DisplayName("Data dodania zadania")]
         public DateTime DataDodania { get; set; }
+
         [DisplayName("Termin")]
         public DateTime Termin { get; set; }
+
         [DisplayName("Komentarz do zadania / opis zadania")]
         public string Komentarz { get; set; }
-        public User User { get; set; }
+
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

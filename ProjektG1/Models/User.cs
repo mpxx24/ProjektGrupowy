@@ -21,7 +21,7 @@ namespace ProjektG1.Models
         [Required(ErrorMessage = "pole wymagane")]
         public string Password { get; set; }
 
-        public List<Task> Task { get; set; } 
+        public virtual ICollection<Task> Tasks { get; set; } 
 
         [DisplayName("Pamiętaj mnie")]
         public bool RememberMe { get; set; }
@@ -66,5 +66,9 @@ namespace ProjektG1.Models
             }
         }
 
+        public override string ToString()
+        {
+            return Username;
+        }
     }
 }
