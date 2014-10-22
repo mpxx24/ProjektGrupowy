@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using System.Web.UI;
 using ProjektG1.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,10 +19,15 @@ namespace ProjektG1.Controllers
         {
             var taskContext = new TaskContext();
             var listaTaskow = new List<Task>();
-
+            
+            var vUser = this.User.Identity.Name;
+            
             foreach (var task in taskContext.Tasks)
             {
-                listaTaskow.Add(task);
+                if (task.OsobaOdpowiedzialna == vUser)
+                {
+                    listaTaskow.Add(task);
+                }
             }
 
             ViewBag.Zadanie = listaTaskow;
