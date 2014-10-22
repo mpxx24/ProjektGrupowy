@@ -48,8 +48,10 @@ namespace ProjektG1.Controllers
             var context = new TaskContext();
             var nowyUser = new User()
             {
-                Username = user.Username,//Request["Username"],
-                Password = user.Password//Request["Password"]
+                Username = user.Username,
+                Password = user.Password,
+                MailAdress = user.MailAdress
+                
             };
 
             context.Users.Add(nowyUser);
@@ -67,7 +69,7 @@ namespace ProjektG1.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Zadanie", "Task");
+            return RedirectToAction("Index", "Home");
         }
         
     }

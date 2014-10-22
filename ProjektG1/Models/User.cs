@@ -26,6 +26,11 @@ namespace ProjektG1.Models
         [DisplayName("Pamiętaj mnie")]
         public bool RememberMe { get; set; }
 
+        //[Required(ErrorMessage = "pole wymagane")]
+        [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$",
+        ErrorMessage = "podaj prawidłowy adres email")]
+        public string MailAdress { get; set; }
+
 
         public bool IsValid(string username, string password)
         {
@@ -37,14 +42,6 @@ namespace ProjektG1.Models
                 if (user.Username != null && user.Password != null)
                 {
                     slownik.Add(user.Username, user.Password);
-                    //if (user.Username.Equals(username) && user.Password.Equals(password))
-                    //{
-                    //    return true;
-                    //}
-                    //else
-                    //{
-                    //    return false;
-                    //}
                 }
             }
 

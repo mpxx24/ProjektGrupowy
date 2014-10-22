@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -62,6 +63,19 @@ namespace ProjektG1.Controllers
                 DataDodania = DateTime.Now,
                 Termin = DateTime.Today
             };
+
+            if (noweZadanie.OsobaOdpowiedzialna != User.Identity.Name)
+            {
+                var mailC = new MailController();
+
+                var doKogo = from u in taskContext.Users
+                             where u.Username == noweZadanie.OsobaOdpowiedzialna
+                             select u.UserId;
+                var id2 = doKogo.Single();
+
+                mailC.SendEmail(taskContext.Users.Single(x => x.UserId == id2));
+            }
+
             taskContext.Tasks.Add(noweZadanie);
             //User usr = new User();
             //usr.Tasks.Add(noweZadanie);

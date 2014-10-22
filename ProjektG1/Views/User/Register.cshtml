@@ -10,10 +10,13 @@
 @using (Html.BeginForm())
 {
     @Html.LabelFor(m => m.Username)
-    @Html.TextBoxFor(m => m.Username);
+    @Html.TextBoxFor(m => m.Username)
 
     @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password);
+    @Html.PasswordFor(m => m.Password)
+    
+    @Html.LabelFor(m => m.MailAdress)
+    @Html.TextBoxFor(m => m.MailAdress)
     <input type="submit" value="Dodaj Użytkownika" />
 }
 <br />
