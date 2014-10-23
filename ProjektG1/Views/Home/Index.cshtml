@@ -24,7 +24,6 @@
                             <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
                                 @Html.TextBoxFor(u => u.Username, new { @class = "my-input form-control", placeholder = "Username" })
                                 @Html.ValidationMessageFor(u => u.Username)
-                                @*<input type="text" class="form-control" placeholder="login">*@
                             </div>
                         </div>
 
@@ -32,7 +31,6 @@
                             <div class="col-lg-offset-2 col-md-offset-2 col-lg-8 col-md-8">
                                 @Html.PasswordFor(u => u.Password, new { @class = "my-input form-control", placeholder = "Password" })
                                 @Html.ValidationMessageFor(u => u.Username)
-                                @*<input type="password" class="form-control" placeholder="password">*@
                             </div>
                         </div>
                         
@@ -51,15 +49,6 @@
                             </div>
                         </div>
                     }
-                    @*<form role="form" class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">Login</label>
-                            <div class="col-lg-8">
-                                <input type="text" class="form-control" placeholder="login">
-                            </div>
-                        </div>
-                        
-                    </form>*@
 
                 </div>
             </div>
