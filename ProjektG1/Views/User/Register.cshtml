@@ -1,0 +1,23 @@
+﻿@model ProjektG1.Models.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Username)
+    @Html.TextBoxFor(m => m.Username)
+
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password)
+    
+    @Html.LabelFor(m => m.MailAdress)
+    @Html.TextBoxFor(m => m.MailAdress)
+    <input type="submit" value="Dodaj Użytkownika" />
+}
+<br />
+@Html.ActionLink("lista tasków", "Zadanie", "Task")

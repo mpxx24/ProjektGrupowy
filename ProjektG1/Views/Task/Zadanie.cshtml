@@ -1,0 +1,45 @@
+﻿@using ProjektG1.Models
+@model ProjektG1.Models.Task
+
+@{
+    ViewBag.Title = "Zadanie";
+}
+
+<h2>Zadanie</h2>
+
+@foreach (Task item in ViewBag.Zadanie)
+{
+    <ul>
+        @item.Tytul
+        <li>
+            Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
+        </li>
+        <li>
+            Data dodania: @item.DataDodania
+        </li>
+        <li>
+            Termin: @item.Termin
+        </li>
+        <li>
+            Komentarz: @item.Komentarz
+        </li>
+    </ul>
+    <span>
+        @using (Html.BeginForm("Delete", "Task", new {id = item.ID}))
+        {
+            <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
+        }
+        @* przenieś do view edycji *@
+        @using (Html.BeginForm("EdytujTask", "Task", new {id = item.ID}))
+        { 
+            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID/>
+        }
+    </span>
+}
+
+@using (Html.BeginForm("DodajTask","Task"))
+{
+  <input type="submit" value="Dodaj"/>
+}
+
+@Html.ActionLink("Strona logowania", "Index" ,"Home")

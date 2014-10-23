@@ -1,0 +1,22 @@
+﻿@model ProjektG1.Models.Task
+
+@{
+    ViewBag.Title = "EdytujTask";
+}
+
+<h2>EdytujTask</h2>
+
+@using (Html.BeginForm("Edit", "Task", new {@id = ViewBag.Id}))
+{
+    @Html.LabelFor(m => m.Tytul)
+    @Html.TextBoxFor(m => m.Tytul, new { @Value = @ViewBag.Tytul })
+    @Html.LabelFor(m => m.OsobaOdpowiedzialna)
+    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new { @Value = ViewBag.OsobaOdpowiedzialna })
+    @Html.LabelFor(m =>m.Komentarz)
+    @Html.TextBoxFor(m => m.Komentarz, new { @Value = ViewBag.Komentarz })
+    <input type="submit" value="Save" />
+}
+
+<p>
+    @Html.ActionLink("Powrót", "Zadanie")
+</p>
