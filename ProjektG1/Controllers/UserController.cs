@@ -53,9 +53,15 @@ namespace ProjektG1.Controllers
                 MailAdress = user.MailAdress
                 
             };
+            
+            if (context.Users.Any(x => x.Username == nowyUser.Username))
+            {
 
-            context.Users.Add(nowyUser);
-
+            }
+            else
+            {
+                context.Users.Add(nowyUser);
+            }
             context.SaveChanges();
 
             return RedirectToAction("PoRejestracji");
