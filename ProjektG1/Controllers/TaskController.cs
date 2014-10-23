@@ -55,9 +55,8 @@ namespace ProjektG1.Controllers
 
             var noweZadanie = new Task()
             {
-                //UserId = id,
                 Tytul = Request["Tytul"],
-                OsobaOdpowiedzialna = Request["OsobaOdpowiedzialna"], //taskContext.Users.Where(x => x.UserId == id).ToString(),
+                OsobaOdpowiedzialna = Request["OsobaOdpowiedzialna"],
                 User = taskContext.Users.Single(x => x.UserId == id),
                 Komentarz = Request["Komentarz"],
                 DataDodania = DateTime.Now,
@@ -77,9 +76,6 @@ namespace ProjektG1.Controllers
             }
 
             taskContext.Tasks.Add(noweZadanie);
-            //User usr = new User();
-            //usr.Tasks.Add(noweZadanie);
-            //taskContext.Users.Add(usr);
             taskContext.SaveChanges();
             return RedirectToAction("Zadanie", "Task");
         }
