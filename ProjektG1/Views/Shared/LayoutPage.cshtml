@@ -12,35 +12,26 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="col-lg-2 col-md-2 col-sm-2" style="line-height: 50px;">
-                    @Html.ActionLink("Task Manager", "Index", "Home", null, new { @class="appName"})
+                    @Html.ActionLink("Task Manager", "Index", "Home", null, new { @class = "appName" })
                 </div>
                 <div class="col-lg-offset-7 col-md-offset-7 col-sm-offset-7 col-lg-3 col-md-3 col-sm-3">
                     <ul class="nav navbar-nav">
                         @if (Request.IsAuthenticated)
                         {
                             <li>@Html.Encode(User.Identity.Name)</li>
-                            <li>@Html.ActionLink("Sign out","LogOut","User", null, new { @class="my-link" })</li>
+                            <li>@Html.ActionLink("Sign out", "LogOut", "User", null, new { @class = "my-link" })</li>
                         }
-                        <li>@Html.ActionLink("Sign In","Login","User",null,new {@class="my-link"})</li>
-                        <li>@Html.ActionLink("Register", "Register", "User",null, new { @class ="my-link" })</li>
+                        else
+                        {
+                            <li>@Html.ActionLink("Sign In", "Login", "User", null, new { @class = "my-link" })</li>
+                            <li>@Html.ActionLink("Register", "Register", "User", null, new { @class = "my-link" })</li>
+                        }
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
     <div>
-        @*@if (Request.IsAuthenticated)
-        {
-            <strong>@Html.Encode(User.Identity.Name)</strong>
-            @Html.ActionLink("Sign Out", "LogOut", "User")
-        }
-        else 
-        {
-            @Html.ActionLink("Register", "Register", "User")
-            <span> | </span>
-            @Html.ActionLink("Sign In", "Login", "User")
-        }*@
-
     </div>
     @RenderBody()
 

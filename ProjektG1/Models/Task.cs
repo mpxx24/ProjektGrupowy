@@ -17,6 +17,9 @@ namespace ProjektG1.Models
         [DisplayName("Nazwa zadania")]
         public string Tytul { get; set; }
 
+        [DisplayName("Dodane przez")]
+        public string OsobaDodajacaZadanie { get; set; }
+
         [DisplayName("Osoba odpowiedzialna za zadanie")]
         public string OsobaOdpowiedzialna { get; set; }
 

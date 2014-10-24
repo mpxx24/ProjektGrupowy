@@ -57,6 +57,7 @@ namespace ProjektG1.Controllers
             {
                 Tytul = Request["Tytul"],
                 OsobaOdpowiedzialna = Request["OsobaOdpowiedzialna"],
+                OsobaDodajacaZadanie = User.Identity.Name,
                 User = taskContext.Users.Single(x => x.UserId == id),
                 Komentarz = Request["Komentarz"],
                 DataDodania = DateTime.Now,

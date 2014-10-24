@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="row" id="form-area">
-                    @using (@Html.BeginForm("Zadanie","Task",FormMethod.Post, new { @class = "form-horizontal" }))
+                    @using (@Html.BeginForm("Login","User",FormMethod.Post, new { @class = "form-horizontal" }))
                     {
                         @Html.ValidationSummary(true, "Niepoprawne dane logowania");
                         <div class="form-group">
