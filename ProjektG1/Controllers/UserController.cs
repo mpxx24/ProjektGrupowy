@@ -21,9 +21,10 @@ namespace ProjektG1.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
+            var hasher = new PHash();
             if (ModelState.IsValid)
             {
-                if (user.IsValid(user.Username, user.Password))
+                if (user.IsValid(user.Username, hasher.SHA1Hashuj(user.Password)))
                 {
                     FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
                     return RedirectToAction("Zadanie", "Task");
@@ -46,10 +47,11 @@ namespace ProjektG1.Controllers
         public ActionResult Register(User user)
         {
             var context = new TaskContext();
+            var hasher = new PHash();
             var nowyUser = new User()
             {
                 Username = user.Username,
-                Password = user.Password,
+                Password =  hasher.SHA1Hashuj(user.Password),
                 MailAdress = user.MailAdress
                 
             };

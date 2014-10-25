@@ -8,10 +8,13 @@
 }
 
 <h2>Zadanie</h2>
-
-@foreach (Task item in ViewBag.Zadanie)
+@using (Html.JQueryUI().BeginDroppable())
 {
-    <ul>
+
+
+foreach (Task item in ViewBag.Zadanie)
+ {
+    @*<ul>
         @item.Tytul
         <li>
             Dodane przez: @item.OsobaDodajacaZadanie
@@ -28,18 +31,25 @@
         <li>
             Komentarz: @item.Komentarz
         </li>
-    </ul>
-    <span>
-        @using (Html.BeginForm("Delete", "Task", new {id = item.ID}))
-        {
-            <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
-        }
-        @* przenieś do view edycji *@
-        @using (Html.BeginForm("EdytujTask", "Task", new {id = item.ID}))
-        { 
-            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID/>
-        }
-    </span>
+    </ul>*@
+
+     using (Html.JQueryUI().BeginDraggable())
+     {
+         <span>@item.Tytul</span>
+     }
+
+     <span>
+         @using (Html.BeginForm("Delete", "Task", new {id = item.ID}))
+         {
+             <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
+         }
+         @* przenieś do view edycji *@
+         @using (Html.BeginForm("EdytujTask", "Task", new {id = item.ID}))
+         {
+             <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID/>
+         }
+     </span>
+ }
 }
 
 @using (Html.BeginForm("DodajTask","Task"))
