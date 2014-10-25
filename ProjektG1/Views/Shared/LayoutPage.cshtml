@@ -6,6 +6,9 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/css-index.css")">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="@Url.Content("~/Content/themes/base/all.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/jquery-1.6.4.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.11.1.js")"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -38,3 +41,11 @@
 
 </body>
 </html>
+
+@*SKRYPTY*@
+
+<script type="text/javascript">
+    $(function () {
+        $('.date-picker').datepicker();
+    })
+</script>

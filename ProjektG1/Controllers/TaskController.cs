@@ -61,7 +61,7 @@ namespace ProjektG1.Controllers
                 User = taskContext.Users.Single(x => x.UserId == id),
                 Komentarz = Request["Komentarz"],
                 DataDodania = DateTime.Now,
-                Termin = DateTime.Today
+                Termin = Convert.ToDateTime(Request["Termin"])
             };
 
             if (noweZadanie.OsobaOdpowiedzialna != User.Identity.Name)
