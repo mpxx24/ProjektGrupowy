@@ -49,3 +49,10 @@
         $('.date-picker').datepicker();
     })
 </script>
+
+<script type="text/javascript">
+    $(function () {
+        $(".ui-widget-content").draggable({revert: "invalid"});
+        $(".ui-widget-header").droppable();
+    });
+</script>

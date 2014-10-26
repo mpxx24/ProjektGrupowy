@@ -4,57 +4,65 @@
 @{
     ViewBag.Title = "Zadanie";
     Layout = "~/Views/Shared/LayoutPage.cshtml";
-    
+
 }
 
 <h2>Zadanie</h2>
-@using (Html.JQueryUI().BeginDroppable())
+
+@{var i = 1;}
+@foreach (Task item in ViewBag.Zadanie)
 {
-
-
-foreach (Task item in ViewBag.Zadanie)
- {
     @*<ul>
-        @item.Tytul
-        <li>
-            Dodane przez: @item.OsobaDodajacaZadanie
-        </li>
-        <li>
-            Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
-        </li>
-        <li>
-            Data dodania: @item.DataDodania
-        </li>
-        <li>
-            Termin: @item.Termin
-        </li>
-        <li>
-            Komentarz: @item.Komentarz
-        </li>
-    </ul>*@
+            @item.Tytul
+            <li>
+                Dodane przez: @item.OsobaDodajacaZadanie
+            </li>
+            <li>
+                Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
+            </li>
+            <li>
+                Data dodania: @item.DataDodania
+            </li>
+            <li>
+                Termin: @item.Termin
+            </li>
+            <li>
+                Komentarz: @item.Komentarz
+            </li>
+        </ul>*@
 
-     using (Html.JQueryUI().BeginDraggable())
-     {
-         <span>@item.Tytul</span>
-     }
+    //using (Html.JQueryUI().BeginDraggable())
+    //{
+    <div id="draggable" class="ui-widget-content"> @* id="draggable@(i)" *@
+        <p>@item.Tytul</p>
+    </div>
 
-     <span>
-         @using (Html.BeginForm("Delete", "Task", new {id = item.ID}))
-         {
-             <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
-         }
-         @* przenieś do view edycji *@
-         @using (Html.BeginForm("EdytujTask", "Task", new {id = item.ID}))
-         {
-             <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID/>
-         }
-     </span>
- }
+    //}
+
+    <span>
+        @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
+        {
+            <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
+        }
+        @* przenieś do view edycji *@
+        @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
+        {
+            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID />
+        }
+    </span>
+    i++;
 }
 
-@using (Html.BeginForm("DodajTask","Task"))
+
+<div id="droppable" class="ui-widget-header">
+    <p> upuść taska tutaj!</p>
+</div>
+
+
+
+@using (Html.BeginForm("DodajTask", "Task"))
 {
-  <input type="submit" value="Dodaj"/>
+    <input type="submit" value="Dodaj" />
 }
 
-@Html.ActionLink("Strona logowania", "Index" ,"Home")
+@Html.ActionLink("Strona logowania", "Index", "Home")

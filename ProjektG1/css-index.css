@@ -114,3 +114,14 @@ input[type="text"].my-input:focus, input[type="password"].my-input:focus {
 	text-decoration: underline !important;
 	color: black !important;
 }
+/* --- --- --- --- --- --- */
+
+#draggable {
+    width: 150px;
+}
+
+#droppable {
+    width: 200px;
+    height: 200px;
+    margin-left: 50%;
+}
