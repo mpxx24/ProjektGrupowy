@@ -79,6 +79,14 @@ namespace ProjektG1.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult AccountOptions()
+        {
+
+            return View();
+        }
+
+       
         
     }
 }

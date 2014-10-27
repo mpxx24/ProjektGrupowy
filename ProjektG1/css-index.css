@@ -21,8 +21,8 @@ body {
 .section {	
 	margin-top: 100px;
 /*	background: rgba(255,255,255,0.5);
-	box-shadow: 0 0 5px #888;*/
-}
+	box-shadow: 0 0 5px #888;
+}*/
 
 /* 
 	Navbar
@@ -118,10 +118,16 @@ input[type="text"].my-input:focus, input[type="password"].my-input:focus {
 
 #draggable {
     width: 150px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #droppable {
     width: 200px;
     height: 200px;
     margin-left: 50%;
+}
+
+div.wJednejLinii {
+    display: inline-block;
 }

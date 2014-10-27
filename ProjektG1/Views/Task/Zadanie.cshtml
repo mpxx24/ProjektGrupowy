@@ -1,4 +1,5 @@
-﻿@using ProjektG1.Models
+﻿@using System.Web.UI.WebControls
+@using ProjektG1.Models
 @model ProjektG1.Models.Task
 
 @{
@@ -9,7 +10,7 @@
 
 <h2>Zadanie</h2>
 
-@{var i = 1;}
+@*@{var i = 1;}*@
 @foreach (Task item in ViewBag.Zadanie)
 {
     @*<ul>
@@ -35,22 +36,20 @@
     //{
     <div id="draggable" class="ui-widget-content"> @* id="draggable@(i)" *@
         <p>@item.Tytul</p>
+
+        <div class="wJednejLinii" style="display: inline">
+            @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
+            {
+                <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
+            }
+            @* przenieś do view edycji *@
+            @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
+            {
+                <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID />
+            }
+        </div>
     </div>
-
-    //}
-
-    <span>
-        @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
-        {
-            <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
-        }
-        @* przenieś do view edycji *@
-        @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
-        {
-            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID />
-        }
-    </span>
-    i++;
+    //i++;
 }
 
 

@@ -23,10 +23,11 @@
                         {
                             <li>@Html.Encode(User.Identity.Name)</li>
                             <li>@Html.ActionLink("Sign out", "LogOut", "User", null, new { @class = "my-link" })</li>
+                            <li>@Html.ActionLink("My Account", "AccountOptions", "User", null, new { @class = "my-link" })</li>
+
                         }
                         else
                         {
-                            <li>@Html.ActionLink("Sign In", "Login", "User", null, new { @class = "my-link" })</li>
                             <li>@Html.ActionLink("Register", "Register", "User", null, new { @class = "my-link" })</li>
                         }
                     </ul>
@@ -52,7 +53,7 @@
 
 <script type="text/javascript">
     $(function () {
-        $(".ui-widget-content").draggable({revert: "invalid"});
+        $(".ui-widget-content").draggable({ revert: "invalid" });
         $(".ui-widget-header").droppable();
     });
 </script>

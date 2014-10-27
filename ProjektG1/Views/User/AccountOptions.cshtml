@@ -1,0 +1,26 @@
+﻿@model ProjektG1.Models.User
+
+@{
+    ViewBag.Title = "AccountOptions";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+<h2>AccountOptions</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(m => m.Username)
+    @Html.DisplayTextFor(m => User.Identity.Name)
+    <br/>
+    @Html.LabelFor(m => m.Password)
+    @Html.TextBoxFor(m => m.Password)
+    <br/>
+    @Html.LabelFor(m => m.MailAdress)
+    @Html.TextBoxFor(m => m.MailAdress)
+    <br/>
+    <input type="submit" value="Save" />
+}
+
+<p>
+    @Html.ActionLink("strona główna", "Index", "Home")
+</p>
