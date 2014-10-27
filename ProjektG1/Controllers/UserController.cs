@@ -80,8 +80,12 @@ namespace ProjektG1.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult AccountOptions()
+        public ActionResult DisplayAccData()
         {
+            var context = new TaskContext();
+            var edytowanyUser = context.Users.Single(m => m.Username == User.Identity.Name);
+
+            ViewBag.UserInfo = edytowanyUser;
 
             return View();
         }

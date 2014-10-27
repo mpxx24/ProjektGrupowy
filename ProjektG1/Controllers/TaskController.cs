@@ -86,12 +86,14 @@ namespace ProjektG1.Controllers
             var context = new TaskContext();
             var doEdycji = context.Tasks.Single(x => x.ID == id);
 
-            ViewBag.Id = id;
-            ViewBag.Tytul = doEdycji.Tytul;
-            ViewBag.OsobaOdpowiedzialna = doEdycji.OsobaOdpowiedzialna;
-            ViewBag.Komentarz = doEdycji.Komentarz;
-            ViewBag.DataDonania = doEdycji.DataDodania;
-            ViewBag.Termin = doEdycji.Termin;
+            ViewBag.EditTask = doEdycji;
+
+            //ViewBag.Id = id;
+            //ViewBag.Tytul = doEdycji.Tytul;
+            //ViewBag.OsobaOdpowiedzialna = doEdycji.OsobaOdpowiedzialna;
+            //ViewBag.Komentarz = doEdycji.Komentarz;
+            //ViewBag.DataDonania = doEdycji.DataDodania;
+            //ViewBag.Termin = doEdycji.Termin;
             return View();
         }
     

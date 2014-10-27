@@ -186,7 +186,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\User\AccountOptions.cshtml" />
+    <Content Include="Views\User\DisplayAccData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

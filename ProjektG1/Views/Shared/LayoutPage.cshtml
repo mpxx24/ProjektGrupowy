@@ -23,8 +23,7 @@
                         {
                             <li>@Html.Encode(User.Identity.Name)</li>
                             <li>@Html.ActionLink("Sign out", "LogOut", "User", null, new { @class = "my-link" })</li>
-                            <li>@Html.ActionLink("My Account", "AccountOptions", "User", null, new { @class = "my-link" })</li>
-
+                            <li>@Html.ActionLink("My Account", "DisplayAccData", "User", null, new { @class = "my-link" })</li>
                         }
                         else
                         {
