@@ -164,10 +164,6 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover {
     margin-left: 50%;
 }
 
-div.wJednejLinii {
-    display: inline-block;
-}
-
 .toggler {
     width: 200px;
     height: 100px;

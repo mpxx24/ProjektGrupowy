@@ -16,7 +16,7 @@
         @*<p>@item.Tytul</p>*@
         <input type="submit" name="ButtonTask" value="@item.Tytul" class="buttonWithEffect" id="ButtonTask" />
 
-        <div class="wJednejLinii" style="display: inline">
+        <div style="display: inline">
             @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
             {
                 <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID/>
