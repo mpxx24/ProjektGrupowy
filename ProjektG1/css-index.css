@@ -9,20 +9,6 @@
 	color: rgba(234,0,0,0.8);
 }
 
-body {
-	background-image: url("img/bg3.jpg");
-	background-position: center top;
-	background-size: 100%;
-}
-
-body::before {
-	content: '';
-	background-color: rgba(0,0,0,0.7);
-	display: block;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-}
 
 /*#wrapper {
 	height: 300px;
@@ -109,9 +95,9 @@ footer {
 	text-decoration: none;
 }
 
-/*
-	Inputs
-*/
+/*------------------------------------------------
+	Inputs, buttons, labels, etc
+----------------------------------------------- */
 input[type="text"].my-input, input[type="password"].my-input {
 	border: none;
 	outline: rgba(0,0,0,0.2) solid 2px;
@@ -129,9 +115,16 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover {
 	outline: rgba(0,0,0,0.4) solid 2px;
 }
 
-/*
-	Labels
-*/
+/* buttons */
+.my-button {
+    border-radius: 0 !important;
+
+}
+.my-button:hover {
+
+}
+
+/* Labels */
 .my-label {
 	font-weight: normal;
 	color: rgba(0,0,0,0.8);
@@ -141,6 +134,7 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover {
 	color: rgba(0,0,0,0.4) !important;
 }
 
+/* links */
 .my-link {
 	color: rgba(255,255,255,0.4);
 }
