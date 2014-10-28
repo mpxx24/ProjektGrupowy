@@ -82,20 +82,11 @@ namespace ProjektG1.Controllers
 
         public ActionResult AccountOptions()
         {
-            var context = new TaskContext();
-            var displayUser = context.Users.Single(m => m.Username == User.Identity.Name);
 
-            return View(displayUser);
-        }
-
-        public ActionResult EditAccData()
-        {
-            var context = new TaskContext();
-            var editUser = context.Users.Single(m => m.Username == User.Identity.Name);
-
-            return View(editUser);
+            return View();
         }
 
        
+        
     }
 }

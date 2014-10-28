@@ -4,9 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css-index.css")">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/css-index.css")">
     <link href="@Url.Content("~/Content/themes/base/all.css")" rel="stylesheet" />
     <script src="@Url.Content("~/Scripts/jquery-1.7.min.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery-ui-1.11.1.js")"></script>
@@ -16,7 +15,7 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="col-lg-2 col-md-2 col-sm-2" style="line-height: 50px;">
-                    @Html.ActionLink("Task Manager", "Index", "Home", null, new { @class = "appName my-link" })
+                    @Html.ActionLink("Task Manager", "Index", "Home", null, new { @class = "appName" })
                 </div>
                 <div class="col-lg-offset-7 col-md-offset-7 col-sm-offset-7 col-lg-3 col-md-3 col-sm-3">
                     <ul class="nav navbar-nav">
@@ -27,6 +26,10 @@
                             <li>@Html.ActionLink("My Account", "AccountOptions", "User", null, new { @class = "my-link" })</li>
 
                         }
+                        else
+                        {
+                            <li>@Html.ActionLink("Register", "Register", "User", null, new { @class = "my-link" })</li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -36,19 +39,6 @@
     </div>
 
     @RenderBody()
-
-    <footer>
-
-        <div class="container text-center">
-            <div class="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4">
-                <small>
-                    <p class="text small-text">mariusz piatkowski && mateusz littwin</p>
-                    <p class="text small-text">Task Manager - Group Project 2014 - Gdańsk University of Technology</p>
-                </small>
-            </div>
-        </div>
-
-    </footer>
 
 </body>
 </html>
@@ -65,11 +55,5 @@
     $(function () {
         $(".ui-widget-content").draggable({ revert: "invalid" });
         $(".ui-widget-header").droppable();
-    });
-</script>
-
-<script>
-    $("#ButtonTask").click(function() {
-        $("toggler").toggle("blind");
     });
 </script>
