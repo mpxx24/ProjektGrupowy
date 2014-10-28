@@ -56,3 +56,14 @@
         $(".ui-widget-header").droppable();
     });
 </script>
+
+<script>
+    $(function() {
+        function runEffect() {
+            $("#effect").toggle("blind", options, 500);
+        };
+        $("#buttonWithEffect").click(function() {
+            runEffect();
+        })
+    });
+</script>

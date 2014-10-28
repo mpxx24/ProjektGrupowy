@@ -6,9 +6,9 @@
 
 
 body {
-	background-image: url("img/bg3.jpg");
-	background-position: center top;
-	background-size: 100%;
+    background-image: url("img/bg3.jpg");
+    background-position: center top;
+    background-size: 100%;
 }
 
 /*#wrapper {
@@ -29,8 +29,8 @@ body {
 */
 
 .navbar {
-	background: rgba(0,0,0,0);
-	border-radius: 0 !important;
+    background: rgba(0,0,0,0);
+    border-radius: 0 !important;
 }
 
 /*
@@ -38,17 +38,17 @@ body {
 */
 
 #baner-area {
-	color: black;
-	padding: 20px 0 20px 0;
+    color: black;
+    padding: 20px 0 20px 0;
 }
 
-#baner-area .text {
-	color: rgba(255,255,255, 0.8);
-}
+    #baner-area .text {
+        color: rgba(255,255,255, 0.8);
+    }
 
 #form-area {
-	margin: 20px;
-	color: black;
+    margin: 20px;
+    color: black;
 }
 
 
@@ -57,63 +57,64 @@ body {
 */
 
 footer {
-	width: 100%;
-	background: rgba(255,255,255,0.2);
-	height: 100px;
-	position: absolute;
-	bottom: 0;
-	border-top: 1px solid rgba(255,255,255,0.1);
-	color: #fff;
-	font: x-small Consolas;
-	padding-top: 20px;
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font: x-small Consolas;
+    padding-top: 20px;
 }
 
 .appName {
-	color: rgba(0,0,0,0.5);
-	font-size: large;
+    color: rgba(0,0,0,0.5);
+    font-size: large;
 }
-.appName:hover {
-	color: rgba(0,0,0	,0.8);
-	text-decoration: none;
-}
+
+    .appName:hover {
+        color: rgba(0,0,0,0.8);
+        text-decoration: none;
+    }
 
 /*
 	Inputs
 */
 input[type="text"].my-input, input[type="password"].my-input {
-	border: none;
-	outline: rgba(0,0,0,0.2) solid 2px;
-	border-radius: 0;
+    border: none;
+    outline: rgba(0,0,0,0.2) solid 2px;
+    border-radius: 0;
 }
 
-input[type="text"].my-input:focus, input[type="password"].my-input:focus {
-	border: none;
-	box-shadow: none;
-	outline: rgba(0,0,0,0.4) solid 2px;
-	color: rgba(15,100,12,0.8);
-}
+    input[type="text"].my-input:focus, input[type="password"].my-input:focus {
+        border: none;
+        box-shadow: none;
+        outline: rgba(0,0,0,0.4) solid 2px;
+        color: rgba(15,100,12,0.8);
+    }
 
 /*
 	Labels
 */
 .my-label {
-	font-weight: normal;
-	color: rgba(0,0,0,0.8);
+    font-weight: normal;
+    color: rgba(0,0,0,0.8);
 }
 
-::-webkit-input-placeholder { 
-	color: rgba(0,0,0,0.4) !important;
+::-webkit-input-placeholder {
+    color: rgba(0,0,0,0.4) !important;
 }
 
 .my-link {
-	color: rgba(0,0,0,1);
+    color: rgba(0,0,0,1);
 }
 
-.my-link:hover {
-	background: transparent !important;
-	text-decoration: underline !important;
-	color: black !important;
-}
+    .my-link:hover {
+        background: transparent !important;
+        text-decoration: underline !important;
+        color: black !important;
+    }
 /* --- --- --- --- --- --- */
 
 #draggable {
@@ -131,3 +132,16 @@ input[type="text"].my-input:focus, input[type="password"].my-input:focus {
 div.wJednejLinii {
     display: inline-block;
 }
+
+#effect {
+    position: relative;
+    width: 240px;
+    height: 135px;
+    padding: 0.4em;
+}
+
+    #effect h3 {
+        margin: 0;
+        padding: 0.4em;
+        text-align: center;
+    }

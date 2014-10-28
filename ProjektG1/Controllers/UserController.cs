@@ -83,13 +83,18 @@ namespace ProjektG1.Controllers
         public ActionResult DisplayAccData()
         {
             var context = new TaskContext();
-            var edytowanyUser = context.Users.Single(m => m.Username == User.Identity.Name);
+            var displayUser = context.Users.Single(m => m.Username == User.Identity.Name);
 
-            ViewBag.UserInfo = edytowanyUser;
-
-            return View();
+            return View(displayUser);
         }
 
+        public ActionResult EditAccData()
+        {
+            var context = new TaskContext();
+            var editUser = context.Users.Single(m => m.Username == User.Identity.Name);
+
+            return View(editUser);
+        }
        
         
     }

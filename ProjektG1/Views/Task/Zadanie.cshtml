@@ -10,46 +10,22 @@
 
 <h2>Zadanie</h2>
 
-@*@{var i = 1;}*@
 @foreach (Task item in ViewBag.Zadanie)
 {
-    @*<ul>
-            @item.Tytul
-            <li>
-                Dodane przez: @item.OsobaDodajacaZadanie
-            </li>
-            <li>
-                Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
-            </li>
-            <li>
-                Data dodania: @item.DataDodania
-            </li>
-            <li>
-                Termin: @item.Termin
-            </li>
-            <li>
-                Komentarz: @item.Komentarz
-            </li>
-        </ul>*@
-
-    //using (Html.JQueryUI().BeginDraggable())
-    //{
     <div id="draggable" class="ui-widget-content"> @* id="draggable@(i)" *@
         <p>@item.Tytul</p>
 
         <div class="wJednejLinii" style="display: inline">
             @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
             {
-                <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
+                <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID/>
             }
-            @* przenieś do view edycji *@
             @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
             {
-                <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID />
+                <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID/>
             }
         </div>
     </div>
-    //i++;
 }
 
 
