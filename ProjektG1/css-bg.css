@@ -1,0 +1,14 @@
+﻿body {
+	background-image: url("img/bg3.jpg");
+	background-position: center top;
+	background-size: 100%;
+}
+
+body::before {
+	content: '';
+	background-color: rgba(0,0,0,0.7);
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}

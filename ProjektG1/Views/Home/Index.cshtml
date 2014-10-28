@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutPage.cshtml";
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css-bg.css")">
 }
-
 <!-- to do content -->
 
 <section class="section">
@@ -19,7 +19,7 @@
 
                     <div id="form-area">
 
-                        @using(@Html.BeginForm("Login","User",FormMethod.Post, new { @class = "form-horizontal"}))
+                        @using (@Html.BeginForm("Zadanie","Task",FormMethod.Post, new { @class = "form-horizontal"}))
                         {
 
                             <div class="form-group">
@@ -40,7 +40,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-12 col-lg-12">
-                                    <button type="submit" class="btn btn-primary col-md-12 col-lg-12">Sign in</button>
+                                    <button type="submit" class="btn btn-primary col-md-12 col-lg-12 my-button">Sign in</button>
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
 
                     </div>
 
-                    <p class="text"><small>Don't have an account?&nbsp;<a href="#" style="text-decoration: underline;">Register</a></small></p>
+                    <p class="text"><small>Don't have an account?&nbsp;@Html.ActionLink("Register", "Register", "User", null, new { style="text-decoration: underline;"})</small></p>
 
                 </div>
             </div>
