@@ -13,7 +13,8 @@
 @foreach (Task item in ViewBag.Zadanie)
 {
     <div id="draggable" class="ui-widget-content"> @* id="draggable@(i)" *@
-        <p>@item.Tytul</p>
+        @*<p>@item.Tytul</p>*@
+        <input type="submit" name="ButtonTask" value="@item.Tytul" class="buttonWithEffect" id="ButtonTask" />
 
         <div class="wJednejLinii" style="display: inline">
             @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
@@ -27,6 +28,12 @@
         </div>
     </div>
 }
+
+<div class="toggler" id="toggler">
+    <p>
+        jakiś randomowy tekst
+    </p>
+</div>
 
 
 <div id="droppable" class="ui-widget-header">

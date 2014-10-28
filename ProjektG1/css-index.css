@@ -170,15 +170,8 @@ div.wJednejLinii {
     display: inline-block;
 }
 
-#effect {
-    position: relative;
-    width: 240px;
-    height: 135px;
-    padding: 0.4em;
+.toggler {
+    width: 200px;
+    height: 100px;
+    background: white;
 }
-
-    #effect h3 {
-        margin: 0;
-        padding: 0.4em;
-        text-align: center;
-    }
