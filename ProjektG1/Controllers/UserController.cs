@@ -80,7 +80,7 @@ namespace ProjektG1.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult DisplayAccData()
+        public ActionResult AccountOptions()
         {
             var context = new TaskContext();
             var displayUser = context.Users.Single(m => m.Username == User.Identity.Name);
@@ -95,7 +95,7 @@ namespace ProjektG1.Controllers
 
             return View(editUser);
         }
+
        
-        
     }
 }
