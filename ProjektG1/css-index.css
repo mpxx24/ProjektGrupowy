@@ -4,11 +4,24 @@
 	All document styles
 */
 
+::selection {
+	background: rgba(255,0,0,0.5);
+	color: rgba(234,0,0,0.8);
+}
 
 body {
-    background-image: url("img/bg3.jpg");
-    background-position: center top;
-    background-size: 100%;
+	background-image: url("img/bg3.jpg");
+	background-position: center top;
+	background-size: 100%;
+}
+
+body::before {
+	content: '';
+	background-color: rgba(0,0,0,0.7);
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }
 
 /*#wrapper {
@@ -17,38 +30,61 @@ body {
 	border: 1px solid rgba(0,0,0,0.7);
 	box-shadow: 0 2px 2px rgba(0,0,0,0.7);
 }
-
+*/
 .section {	
 	margin-top: 100px;
 /*	background: rgba(255,255,255,0.5);
-	box-shadow: 0 0 5px #888;
-}*/
+	box-shadow: 0 0 5px #888;*/
+}
 
 /* 
 	Navbar
 */
 
 .navbar {
-    background: rgba(0,0,0,0);
-    border-radius: 0 !important;
+	background: rgba(0,0,0,0);
+	border-radius: 0 !important;
 }
 
 /*
 	Main content
 */
 
-#baner-area {
-    color: black;
-    padding: 20px 0 20px 0;
+#flex-wrapper {
+	padding: 20px 40px 20px 40px;
+	background-color: rgba(255,255,255,.9);
+	border: 1px solid rgba(255,255,255,.9	);
+	border-radius: 5px;
+	box-shadow: 0 1px 5px #444;
 }
 
-    #baner-area .text {
-        color: rgba(255,255,255, 0.8);
-    }
+.text-area {
+	color: black;
+	padding: 20px 0 20px 0 !important;
+}
+
+.text {
+	color: #888;
+	font-weight: normal;
+	font-size: 12pt;
+}
+
+.small-text {
+	font-size: small;
+}
+
+.small-text:before {
+    content: '{ ';
+    color: red;
+}
+.small-text:after {
+    content: " }";
+    color: red;
+}
 
 #form-area {
-    margin: 20px;
-    color: black;
+	/*margin: 0 20px 0 20px;*/
+	color: black;
 }
 
 
@@ -57,64 +93,65 @@ body {
 */
 
 footer {
-    width: 100%;
-    background: rgba(255,255,255,0.2);
-    height: 100px;
-    position: absolute;
-    bottom: 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: #fff;
-    font: x-small Consolas;
-    padding-top: 20px;
+	width: 100%;
+	height: 100px;
+	position: absolute;
+	bottom: 0;
+	color: #fff;
+	font: x-small Consolas;
+	padding-top: 20px;
 }
 
 .appName {
-    color: rgba(0,0,0,0.5);
-    font-size: large;
+	font-size: large;
 }
 
-    .appName:hover {
-        color: rgba(0,0,0,0.8);
-        text-decoration: none;
-    }
+.appName:hover {
+	text-decoration: none;
+}
 
 /*
 	Inputs
 */
 input[type="text"].my-input, input[type="password"].my-input {
-    border: none;
-    outline: rgba(0,0,0,0.2) solid 2px;
-    border-radius: 0;
+	border: none;
+	outline: rgba(0,0,0,0.2) solid 2px;
+	border-radius: 0;
 }
 
-    input[type="text"].my-input:focus, input[type="password"].my-input:focus {
-        border: none;
-        box-shadow: none;
-        outline: rgba(0,0,0,0.4) solid 2px;
-        color: rgba(15,100,12,0.8);
-    }
+input[type="text"].my-input:focus, input[type="password"].my-input:focus {
+	border: none;
+	box-shadow: 0 0 2px #888;
+	color: #888;
+	outline: rgba(0,0,0,0.4) solid 2px;
+}
+
+input[type="text"].my-input:hover, input[type="password"].my-input:hover {
+	outline: rgba(0,0,0,0.4) solid 2px;
+}
 
 /*
 	Labels
 */
 .my-label {
-    font-weight: normal;
-    color: rgba(0,0,0,0.8);
+	font-weight: normal;
+	color: rgba(0,0,0,0.8);
 }
 
-::-webkit-input-placeholder {
-    color: rgba(0,0,0,0.4) !important;
+::-webkit-input-placeholder { 
+	color: rgba(0,0,0,0.4) !important;
 }
 
 .my-link {
-    color: rgba(0,0,0,1);
+	color: rgba(255,255,255,0.4);
 }
 
-    .my-link:hover {
-        background: transparent !important;
-        text-decoration: underline !important;
-        color: black !important;
-    }
+.my-link:hover {
+	background: transparent !important;
+	text-decoration: underline !important;
+	color: white !important;
+	text-decoration: none !important;
+}
 /* --- --- --- --- --- --- */
 
 #draggable {
