@@ -15,7 +15,14 @@ namespace ProjektG1.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Zadanie", "Task");
+            }
+            else
+            {
+                return View();
+            }
         }
         
     }

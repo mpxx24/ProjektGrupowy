@@ -1,4 +1,5 @@
-﻿@using ProjektG1.Models
+﻿@using System.Web.UI.WebControls
+@using ProjektG1.Models
 @model ProjektG1.Models.Task
 
 @{
@@ -9,49 +10,30 @@
 
 <h2>Zadanie</h2>
 
-@{var i = 1;}
 @foreach (Task item in ViewBag.Zadanie)
 {
-    @*<ul>
-            @item.Tytul
-            <li>
-                Dodane przez: @item.OsobaDodajacaZadanie
-            </li>
-            <li>
-                Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
-            </li>
-            <li>
-                Data dodania: @item.DataDodania
-            </li>
-            <li>
-                Termin: @item.Termin
-            </li>
-            <li>
-                Komentarz: @item.Komentarz
-            </li>
-        </ul>*@
-
-    //using (Html.JQueryUI().BeginDraggable())
-    //{
     <div id="draggable" class="ui-widget-content"> @* id="draggable@(i)" *@
-        <p>@item.Tytul</p>
+        @*<p>@item.Tytul</p>*@
+        <input type="submit" name="ButtonTask" value="@item.Tytul" class="buttonWithEffect" id="ButtonTask" />
+
+        <div class="wJednejLinii" style="display: inline">
+            @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
+            {
+                <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID/>
+            }
+            @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
+            {
+                <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID/>
+            }
+        </div>
     </div>
-
-    //}
-
-    <span>
-        @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
-        {
-            <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID />
-        }
-        @* przenieś do view edycji *@
-        @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
-        {
-            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID />
-        }
-    </span>
-    i++;
 }
+
+<div class="toggler" id="toggler">
+    <p>
+        jakiś randomowy tekst
+    </p>
+</div>
 
 
 <div id="droppable" class="ui-widget-header">

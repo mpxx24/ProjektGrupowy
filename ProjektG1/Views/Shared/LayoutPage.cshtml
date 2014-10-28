@@ -24,6 +24,7 @@
                         {
                             <li>@Html.Encode(User.Identity.Name)</li>
                             <li>@Html.ActionLink("Sign out", "LogOut", "User", null, new { @class = "my-link" })</li>
+                            <li>@Html.ActionLink("My Account", "DisplayAccData", "User", null, new { @class = "my-link" })</li>
                         }
                     </ul>
                 </div>
@@ -61,7 +62,13 @@
 
 <script type="text/javascript">
     $(function () {
-        $(".ui-widget-content").draggable({revert: "invalid"});
+        $(".ui-widget-content").draggable({ revert: "invalid" });
         $(".ui-widget-header").droppable();
+    });
+</script>
+
+<script>
+    $("#ButtonTask").click(function() {
+        $("toggler").toggle("blind");
     });
 </script>
