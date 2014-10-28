@@ -15,7 +15,7 @@
         <div class="container">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="col-lg-2 col-md-2 col-sm-2" style="line-height: 50px;">
-                    @Html.ActionLink("Task Manager", "Index", "Home", null, new { @class = "appName" })
+                    @Html.ActionLink("Task Manager", "Index", "Home", null, new { @class = "appName my-link" })
                 </div>
                 <div class="col-lg-offset-7 col-md-offset-7 col-sm-offset-7 col-lg-3 col-md-3 col-sm-3">
                     <ul class="nav navbar-nav">
@@ -23,11 +23,6 @@
                         {
                             <li>@Html.Encode(User.Identity.Name)</li>
                             <li>@Html.ActionLink("Sign out", "LogOut", "User", null, new { @class = "my-link" })</li>
-                        }
-                        else
-                        {
-                            <li>@Html.ActionLink("Sign In", "Login", "User", null, new { @class = "my-link" })</li>
-                            <li>@Html.ActionLink("Register", "Register", "User", null, new { @class = "my-link" })</li>
                         }
                     </ul>
                 </div>
@@ -38,6 +33,19 @@
     </div>
 
     @RenderBody()
+
+    <footer>
+
+        <div class="container text-center">
+            <div class="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4">
+                <small>
+                    <p class="text small-text">mariusz piatkowski && mateusz littwin</p>
+                    <p class="text small-text">Task Manager - Group Project 2014 - Gdańsk University of Technology</p>
+                </small>
+            </div>
+        </div>
+
+    </footer>
 
 </body>
 </html>
