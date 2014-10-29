@@ -6,14 +6,14 @@
 
 <h2>EdytujTask</h2>
 
-@using (Html.BeginForm("Edit", "Task", new {@id = ViewBag.Id}))
+@using (Html.BeginForm("Edit", "Task", new {@id = ViewBag.EditTask.ID}))
 {
     @Html.LabelFor(m => m.Tytul)
-    @Html.TextBoxFor(m => m.Tytul, new { @Value = @ViewBag.Tytul })
+    @Html.TextBoxFor(m => m.Tytul, new {@Value = @ViewBag.EditTask.Tytul})
     @Html.LabelFor(m => m.OsobaOdpowiedzialna)
-    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new { @Value = ViewBag.OsobaOdpowiedzialna })
+    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new {@Value = ViewBag.EditTask.OsobaOdpowiedzialna})
     @Html.LabelFor(m =>m.Komentarz)
-    @Html.TextBoxFor(m => m.Komentarz, new { @Value = ViewBag.Komentarz })
+    @Html.TextBoxFor(m => m.Komentarz, new {@Value = ViewBag.EditTask.Komentarz})
     <input type="submit" value="Save" />
 }
 
