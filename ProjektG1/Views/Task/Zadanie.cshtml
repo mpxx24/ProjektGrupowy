@@ -9,11 +9,11 @@
 }
 
 <h2>Zadanie</h2>
-
+@{ int i = 1;}
 @foreach (Task item in ViewBag.Zadanie)
 {
-    <div id="draggable" class="ui-widget-content">
-        <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" />
+    <div id="draggable" class="ui-widget-content" title=@i>
+        <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="buttonTask"/>
 
         <div class="toggler" id="toggler">
             <p>
@@ -39,6 +39,7 @@
         </div>
 
     </div>
+    i++;
 }
 
 <div id="droppable" class="ui-widget-header">

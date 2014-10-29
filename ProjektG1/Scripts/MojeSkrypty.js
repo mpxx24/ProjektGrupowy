@@ -15,7 +15,7 @@ $(function () {
     });
 
     //show toggle on click
-    $("#ButtonTask").click(function () {
-        $(".toggler").toggle("blind");
+    $(".buttonTask").click(function () {
+        $(this).siblings(".toggler").toggle("blind");
     });
 });

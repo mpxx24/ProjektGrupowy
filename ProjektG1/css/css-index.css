@@ -188,3 +188,9 @@ div.wJednejLinii {
     height: 200px;
     background: white;
 }
+
+.blad404 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
