@@ -3,10 +3,10 @@
 	color: rgba(234,0,0,0.8);
 }
 
-body {
-	background-image: url("img/patt1.png");
+/*body {
+	background-image: url("img/patt2.png");
 	background-position: center top;
-}
+}*/
 
 #wrapper {
 	margin-top: 50px;
