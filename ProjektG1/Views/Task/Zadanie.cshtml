@@ -5,7 +5,6 @@
 @{
     ViewBag.Title = "Zadanie";
     Layout = "~/Views/Shared/LayoutPage.cshtml";
-
 }
 
 <h2>Zadanie</h2>
@@ -14,6 +13,7 @@
 {
     <div id="draggable" class="ui-widget-content">
         <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" />
+
         <div class="toggler" id="toggler">
             <p>
                 Dodano przez: @item.OsobaDodajacaZadanie
@@ -25,6 +25,7 @@
                 komentarz: @item.Komentarz
             </p>
         </div>
+
         <div class="wJednejLinii" style="display: inline">
             @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
             {
@@ -35,6 +36,7 @@
                 <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID/>
             }
         </div>
+
     </div>
 }
 
