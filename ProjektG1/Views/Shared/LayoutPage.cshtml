@@ -23,7 +23,7 @@
                     <ul class="nav navbar-nav">
                         @if (Request.IsAuthenticated)
                         {
-                            <li>@Html.Encode(User.Identity.Name)</li>
+                            <li><p class="usernameStyle">@Html.Encode(User.Identity.Name)</p></li>
                             <li>@Html.ActionLink("Sign out", "LogOut", "User", null, new { @class = "my-link" })</li>
                             <li>@Html.ActionLink("My Account", "DisplayAccData", "User", null, new { @class = "my-link" })</li>
                         }
