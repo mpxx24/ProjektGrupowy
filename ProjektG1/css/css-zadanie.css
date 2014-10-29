@@ -1,0 +1,67 @@
+﻿::selection {
+	background: rgba(255,0,0,0.5);
+	color: rgba(234,0,0,0.8);
+}
+
+/*body {
+	background-image: url("img/patt2.png");
+	background-position: center top;
+}*/
+
+#wrapper {
+	margin-top: 50px;
+	padding: 20px;
+	background: #fff;
+	box-shadow: 0 2px 2px #888;
+}
+
+.task-group {
+	background: transparent;
+	margin: 0 20px 20px 0;
+}
+
+
+/* -----------------------------------
+	one task
+----------------------------------- */
+
+.task {
+	display: block;
+	background: #E5E5E5;
+	margin: 5px 0;
+	padding: 10px 5px;
+	position: relative;
+}
+
+.task-visible,
+.task-hidden {
+	position: relative;
+	top: 0;
+	left: 0;
+	width:100%;
+	height: 100%;
+}
+
+.task::after, .task::before {
+	content: ' ';
+	display: block;
+}
+
+.task-info {
+	position: absolute;
+	top: 0;	
+	left: 0;
+	width: 100%;
+	font-size: x-small;
+	background-color: rgba(0,0,0,0.1);
+}
+
+
+
+.task-group-name {
+	text-align: center;
+	padding: 10px 0 10px 0;
+	font: 12pt "Consolas";
+	color: #fff;
+	background: #297B48;
+}
