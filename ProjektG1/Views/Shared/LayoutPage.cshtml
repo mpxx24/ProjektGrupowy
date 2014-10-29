@@ -10,6 +10,7 @@
     <link href="@Url.Content("~/Content/themes/base/all.css")" rel="stylesheet" />
     <script src="@Url.Content("~/Scripts/jquery-1.7.min.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery-ui-1.11.1.js")"></script>
+    <script src="@Url.Content("~/Scripts/MojeSkrypty.js")"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -37,7 +38,6 @@
     @RenderBody()
 
     <footer>
-
         <div class="container text-center">
             <div class="col-lg-4 col-md-4 col-lg-offset-4 col-md-offset-4">
                 <small>
@@ -46,34 +46,7 @@
                 </small>
             </div>
         </div>
-
     </footer>
 
 </body>
 </html>
-
-@*SKRYPTY*@
-
-<script type="text/javascript">
-    $(function () {
-        $('.date-picker').datepicker();
-    })
-</script>
-
-<script type="text/javascript">
-    $(function () {
-        $(".ui-widget-content").draggable({ revert: "invalid" });
-        $(".ui-widget-header").droppable();
-    });
-</script>
-
-<script>
-    $(document).ready(function () {
-        $(".toggler").toggle(false);
-    });
-
-
-    $("#ButtonTask").click(function () {
-        $(".toggler").toggle("blind");
-    });
-</script>
