@@ -14,7 +14,17 @@
 {
     <div id="draggable" class="ui-widget-content">
         <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" />
-
+        <div class="toggler" id="toggler">
+            <p>
+                Dodano przez: @item.OsobaDodajacaZadanie
+                <br/>
+                Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
+                <br/>
+                Data dodania: @item.DataDodania
+                <br/>
+                komentarz: @item.Komentarz
+            </p>
+        </div>
         <div class="wJednejLinii" style="display: inline">
             @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
             {
@@ -28,11 +38,7 @@
     </div>
 }
 
-<div class="toggler" id="toggler">
-    <p>
-        jakiś randomowy tekst
-    </p>
-</div>
+
 
 
 <div id="droppable" class="ui-widget-header">
