@@ -170,6 +170,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="css\css-bg.css" />
     <Content Include="css\css-index.css" />
+    <Content Include="css\css-zadanie.css" />
     <Content Include="Global.asax" />
     <Content Include="img\bg3.jpg" />
     <None Include="Scripts\jquery-1.7-vsdoc.js" />
