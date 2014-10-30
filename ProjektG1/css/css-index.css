@@ -4,8 +4,15 @@
 	All document styles
 */
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 body {
     background-image: url("/img/patt2.jpg");
+    background-attachment: fixed;
+    margin-bottom: 100px;
 }
 
 ::selection {
