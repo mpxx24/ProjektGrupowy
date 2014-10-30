@@ -15,14 +15,19 @@ namespace ProjektG1.Controllers
 {
     public class TaskController : Controller
     {
-        
+
         public ActionResult Zadanie()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             var taskContext = new TaskContext();
             var listaTaskow = new List<Task>();
-            
+
             var vUser = this.User.Identity.Name;
-            
+
             foreach (var task in taskContext.Tasks)
             {
                 if (task.OsobaOdpowiedzialna == vUser)
@@ -34,11 +39,12 @@ namespace ProjektG1.Controllers
             ViewBag.Zadanie = listaTaskow;
 
             return View();
+
         }
-        
+
         public ActionResult DodajTask()
         {
-            
+
             return View();
         }
 
@@ -89,7 +95,7 @@ namespace ProjektG1.Controllers
             ViewBag.EditTask = doEdycji;
             return View();
         }
-    
+
         [HttpPost]
         public ActionResult Edit(int id)
         {
@@ -102,7 +108,7 @@ namespace ProjektG1.Controllers
             edytowanyTask.DataDodania = DateTime.Now;
             edytowanyTask.Termin = DateTime.Today;
             context.SaveChanges();
-            
+
             return RedirectToAction("Zadanie", "Task");
         }
 
@@ -114,7 +120,7 @@ namespace ProjektG1.Controllers
             var doUsuniecia = context.Tasks.Single(z => z.ID == id);
             context.Tasks.Remove(doUsuniecia);
             context.SaveChanges();
-            
+
             return RedirectToAction("Zadanie", "Task");
         }
 

@@ -22,5 +22,14 @@ namespace ProjektG1
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+
+        protected void Application_Error()
+        {
+            Exception ex = Server.GetLastError();
+            if (ex is HttpException && ((HttpException)ex).GetHttpCode() == 403)
+            {
+                Response.Redirect("~/Views/Home/Index.cshtml");
+            }
+        }
     }
 }
