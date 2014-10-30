@@ -12,12 +12,13 @@
 	margin-top: 50px;
 	padding: 20px;
 	background: #fff;
-	box-shadow: 0 2px 2px #888;
+	box-shadow: 0 2px 2px #000;
 }
 
 .task-group {
 	background: transparent;
 	margin: 0 20px 20px 0;
+    background: yellow;
 }
 
 
@@ -31,6 +32,7 @@
 	margin: 5px 0;
 	padding: 10px 5px;
 	position: relative;
+    z-index: 2;
 }
 
 .task-visible,
@@ -47,6 +49,15 @@
 	display: block;
 }
 
+.task-controls-area {
+    width: 100%;
+    display: inline-block;
+    background: rgba(0,0,0,0.2);
+}
+.task-controls-area .inline {
+    float: left;
+}
+
 .task-info {
 	position: absolute;
 	top: 0;	
@@ -56,12 +67,39 @@
 	background-color: rgba(0,0,0,0.1);
 }
 
-
-
 .task-group-name {
 	text-align: center;
 	padding: 10px 0 10px 0;
 	font: 12pt "Consolas";
 	color: #fff;
 	background: #297B48;
+}
+
+
+/* ----------------------------------------------- */
+#draggable {
+    width: 150px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+}
+
+#droppable {
+
+}
+
+div.wJednejLinii {
+    display: inline-block;
+}
+
+.toggler {
+    width: 200px;
+    height: 200px;
+    background: white;
+}
+
+.blad404 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
