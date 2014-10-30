@@ -6,8 +6,8 @@ $(function () {
     $('.date-picker').datepicker();
 
     //drag and drop
-    $(".ui-widget-content").draggable({ revert: "invalid" });
-    $(".ui-widget-header").droppable();
+    $(".task").draggable({ revert: "invalid" });
+    $(".task-group").droppable();
 
     //do not show toggler on page load
     $(document).ready(function () {

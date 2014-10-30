@@ -173,31 +173,3 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover {
 	text-decoration: none !important;
 }
 /* --- --- --- --- --- --- */
-
-#draggable {
-    width: 150px;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-#droppable {
-    width: 200px;
-    height: 200px;
-    margin-left: 50%;
-}
-
-div.wJednejLinii {
-    display: inline-block;
-}
-
-.toggler {
-    width: 200px;
-    height: 200px;
-    background: white;
-}
-
-.blad404 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
