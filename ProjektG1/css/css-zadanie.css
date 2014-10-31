@@ -15,10 +15,18 @@
 	box-shadow: 0 2px 2px #000;
 }
 
+/* ----------------------------------- 
+    task group
+----------------------------------- */
 .task-group {
 	background: transparent;
 	margin: 0 20px 20px 0;
     background: yellow;
+}
+
+.items {
+    display: block;
+    list-style: none;
 }
 
 
@@ -30,7 +38,7 @@
 	display: block;
 	background: #E5E5E5;
 	margin: 5px 0;
-	padding: 10px 5px;
+	padding: 10px 0;
 	position: relative;
     z-index: 2;
 }
@@ -53,11 +61,17 @@
     width: 100%;
     display: inline-block;
     background: rgba(0,0,0,0.2);
-}
-.task-controls-area .inline {
-    float: left;
+    vertical-align: top;
 }
 
+.task-controls-area .inline {
+    float: left; 
+}
+.task-controls-area form {
+    display: inline;
+}
+
+/* task text effects */
 .task-info {
 	position: absolute;
 	top: 0;	
@@ -73,6 +87,16 @@
 	font: 12pt "Consolas";
 	color: #fff;
 	background: #297B48;
+}
+
+.task-text {
+    line-height: 1.1em;
+}
+
+
+/* buttons */
+.btn-tm {
+    content: ' ';
 }
 
 
