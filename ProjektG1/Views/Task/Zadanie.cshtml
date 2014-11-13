@@ -1,24 +1,25 @@
 ﻿@using System.Web.UI.WebControls
 @using ProjektG1.Models
 @model ProjektG1.Models.Task
+@model ProjektG1.Models.TaskGroup
 
 @{
     ViewBag.Title = "Zadanie";
     Layout = "~/Views/Shared/LayoutPage.cshtml";
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/css-zadanie.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/css-zadanie.css")" />
 }
 
 @* work place *@
 
 <div class="container">
     <div class="col-lg-12 col-md-12" id="wrapper">
-        <div class="col-lg-3 col-md-3">
+        <div class="col-lg-3 col-md-4 task-group" id="droppable">
+            <p class="task-group-name">Group name</p>
             @{ int i = 1;}
             @foreach (Task item in ViewBag.Zadanie)
             {
                 <div class="task" title=task @i>
                     <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="btn-default buttonTask" />
-
                     <div class="toggler" id="toggler">
                         <p>
                             Dodano przez: @item.OsobaDodajacaZadanie
@@ -41,27 +42,25 @@
                             <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID class="btn-default inline" />
                         }
                     </div>
-
                 </div>
-                        i++;
+            }
+            @using (Html.BeginForm("DodajTask", "Task"))
+            {
+                <input type="submit" value="Dodaj" />
             }
         </div>
 
-        <div class="col-lg-9 col-md-9">
-            <div class="col-lg-4 col-md-4 task-group" id="droppable">
-                <p class="task-group-name">Group name</p>
-                @using (Html.BeginForm("DodajTask", "Task"))
-                {
-                    <input type="submit" value="Dodaj" />
-                }
-            </div>
-
+        <div class="col-lg-3 col-md-4 task-group" id="droppable">
+            <p class="task-group-name">Group name</p>
+            @using (Html.BeginForm("DodajTask", "Task"))
+            {
+                <input type="submit" value="Dodaj" />
+            }
         </div>
+
     </div>
+
 </div>
-
-@* end of work place *@
-
 
 
 

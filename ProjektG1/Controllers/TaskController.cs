@@ -27,7 +27,7 @@ namespace ProjektG1.Controllers
             var listaTaskow = new List<Task>();
 
             var vUser = this.User.Identity.Name;
-
+            
             foreach (var task in taskContext.Tasks)
             {
                 if (task.OsobaOdpowiedzialna == vUser)
@@ -68,6 +68,9 @@ namespace ProjektG1.Controllers
                 Komentarz = Request["Komentarz"],
                 DataDodania = DateTime.Now,
                 Termin = Convert.ToDateTime(Request["Termin"])
+                //TaskGroup = taskContext.TaskGroups.Single(),
+                
+                
             };
 
             if (noweZadanie.OsobaOdpowiedzialna != User.Identity.Name)

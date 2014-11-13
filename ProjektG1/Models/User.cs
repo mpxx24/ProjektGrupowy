@@ -21,7 +21,8 @@ namespace ProjektG1.Models
         [Required(ErrorMessage = "pole wymagane")]
         public string Password { get; set; }
 
-        public virtual ICollection<Task> Tasks { get; set; } 
+        public virtual ICollection<Task> Tasks { get; set; }
+        public virtual ICollection<TaskGroup> TaskGroups { get; set; }
 
         [DisplayName("Pamiętaj mnie")]
         public bool RememberMe { get; set; }
