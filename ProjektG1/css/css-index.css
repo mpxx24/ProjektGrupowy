@@ -68,12 +68,12 @@ body {
 	Main content
 */
 
-#flex-wrapper {
+.flex-wrapper {
 	padding: 20px 40px 20px 40px;
 	background-color: rgba(255,255,255,.9);
-	border: 1px solid rgba(255,255,255,.9	);
+	border: 1px solid rgba(255,255,255,.9);
 	border-radius: 5px;
-	box-shadow: 0 1px 5px #444;
+	box-shadow: 0 1px 5px #000;
 }
 
 .text-area {
@@ -178,4 +178,8 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover {
 	color: white !important;
 	text-decoration: none !important;
 }
-/* --- --- --- --- --- --- */
+
+/* text effects for all */
+.text-space-b-a {
+    margin: 20px 0 20px 0;
+}
