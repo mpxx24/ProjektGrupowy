@@ -5,16 +5,30 @@
 @{
     ViewBag.Title = "Zadanie";
     Layout = "~/Views/Shared/LayoutPage.cshtml";
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/css-zadanie.css")"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/css-zadanie.css")" />
 }
 
 @* work place *@
 
 <div class="container">
-    <div class="col-lg-12 col-md-12 wrapper">
-        <div class="col-lg-3 col-md-3">
-            @{ int i = 1;}
-            @foreach (Task item in ViewBag.Zadanie)
+    <div class="col-lg-12 col-md-12" id="wrapper">
+
+        @using (Html.BeginForm("AddGroup", "Group"))
+        {
+            <input type="submit" name="ButtonAddGroup" value="Dodaj Grupę" />
+        }
+
+        @foreach (TaskGroup grupa in ViewBag.Grupy)
+        {
+            <div class="col-lg-9 col-md-9">
+                <div class="col-lg-4 col-md-4 task-group" id="droppable" title="@grupa.TaskGroupId">
+                    <p class="task-group-name">@grupa.GroupName</p>
+                    @{
+                        int i = 1;
+                    }
+                    @if (@grupa.ListaTaskow != null)
+                    {
+                        foreach (var item in @grupa.ListaTaskow)
             {
                 <div class="task" title=task @i>
                     <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="btn btn-default buttonTask" />
@@ -44,44 +58,66 @@
 
                 </div>
                     i++;
-               } 
+                }
+                    }
+                    @using (Html.BeginForm("DodajTask", "Task"))
+                    {
+                        //hidden textbox/label/cokolwiek ?
+                        ViewBag.GrupaIdTest = @grupa.TaskGroupId;
+                        <input type="submit" value="Dodaj" />
+                    }
+                    <input type="submit" value="Usuń Grupę" />
+
+                </div>
+
+            </div>
+        }
+
+        @*<div class="col-lg-3 col-md-3">
+                @{ int i = 1;}
+                @foreach (Task item in ViewBag.Zadanie)
+                {
+                    <div class="task" title=task @i>
+                        <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="btn-default buttonTask" />
+
+                        <div class="toggler" id="toggler">
+                            <p>
+                                Dodano przez: @item.OsobaDodajacaZadanie
+                                <br />
+                                Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
+                                <br />
+                                Data dodania: @item.DataDodania
+                                <br />
+                                komentarz: @item.Komentarz
+                            </p>
         </div>
 
-        <div class="col-lg-9 col-md-9">
-            <div class="col-lg-4 col-md-4 task-group" id="droppable">
-                <p class="task-group-name">Group name</p>
-                <ul class="items list-group">
-                    <li class="task">
-                        <table cellpadding="0" cellspacing="0">
-                            <tbody>
-                                <tr>
-                                    <td class="col-lg-9 task-text">jakis tekst</td>
-                                    <td class="col-lg-3 task-controls-area">
-                                        @*potem tu musze pozmieniac, ale na razie niech tak zostanie  *@
-                                        @using (Html.BeginForm("Delete", "Task")) 
+                        <div class="task-controls-area">
+                            @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
                                         {
-                                            <input type="submit" name="ButtonUsun" value="del" class="btn btn-tm btn-delete inline">
+                                <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID class="btn-default inline" />
                                         }
-                                        @using (Html.BeginForm("EdytujTask", "Task"))
+                            @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
                                         {
-                                            <input type="submit" name="ButtonEdytuj" value="edit" class="btn btn-tm btn-edit inline">
+                                <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID class="btn-default inline" />
+                            }
+                        </div>
+
+                    </div>
+                            i++;
                                         }
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </li>
-                    <li class="task">
-                        b
-                    </li>
-                </ul>
+            </div>*@
+
+        @*<div class="col-lg-9 col-md-9">
+                <div class="col-lg-4 col-md-4 task-group" id="droppable">
+                    <p class="task-group-name">Group name</p>
                 @using (Html.BeginForm("DodajTask", "Task"))
                 {
                     <input type="submit" value="Dodaj" />
                 }
             </div>
 
-        </div>
+            </div>*@
     </div>
 </div>
 

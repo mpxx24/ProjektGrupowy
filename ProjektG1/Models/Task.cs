@@ -32,6 +32,8 @@ namespace ProjektG1.Models
         [DisplayName("Komentarz do zadania / opis zadania")]
         public string Komentarz { get; set; }
 
+        public int TaskGroupId { get; set; }
+        public virtual TaskGroup TaskGroup { get; set; }
         public int UserId { get; set; }
 
         public virtual User User { get; set; }

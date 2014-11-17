@@ -15,14 +15,20 @@ namespace ProjektG1.Controllers
 {
     public class TaskController : Controller
     {
-        
+
         public ActionResult Zadanie()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             var taskContext = new TaskContext();
             var listaTaskow = new List<Task>();
-            
+            var listaGrup = new List<TaskGroup>();
+
             var vUser = this.User.Identity.Name;
-            
+
             foreach (var task in taskContext.Tasks)
             {
                 if (task.OsobaOdpowiedzialna == vUser)
@@ -31,14 +37,23 @@ namespace ProjektG1.Controllers
                 }
             }
 
-            ViewBag.Zadanie = listaTaskow;
+            foreach (var grupa in taskContext.TaskGroups)
+            {
+                if (grupa.User.Username == vUser)
+                {
+                    listaGrup.Add(grupa);
+                }
+            }
 
+            ViewBag.Zadanie = listaTaskow;
+            ViewBag.Grupy = listaGrup;
             return View();
+
         }
-        
+
         public ActionResult DodajTask()
         {
-            
+
             return View();
         }
 
@@ -52,7 +67,6 @@ namespace ProjektG1.Controllers
                     select u.UserId;
             var id = q.Single();
 
-
             var noweZadanie = new Task()
             {
                 Tytul = Request["Tytul"],
@@ -61,7 +75,8 @@ namespace ProjektG1.Controllers
                 User = taskContext.Users.Single(x => x.UserId == id),
                 Komentarz = Request["Komentarz"],
                 DataDodania = DateTime.Now,
-                Termin = Convert.ToDateTime(Request["Termin"])
+                Termin = Convert.ToDateTime(Request["Termin"]),
+                TaskGroup = taskContext.TaskGroups.Single(x => x.TaskGroupId == 3) //DYNAMIC PLZ
             };
 
             if (noweZadanie.OsobaOdpowiedzialna != User.Identity.Name)
@@ -76,6 +91,7 @@ namespace ProjektG1.Controllers
                 mailC.SendEmail(taskContext.Users.Single(x => x.UserId == id2));
             }
 
+
             taskContext.Tasks.Add(noweZadanie);
             taskContext.SaveChanges();
             return RedirectToAction("Zadanie", "Task");
@@ -89,7 +105,7 @@ namespace ProjektG1.Controllers
             ViewBag.EditTask = doEdycji;
             return View();
         }
-    
+
         [HttpPost]
         public ActionResult Edit(int id)
         {
@@ -102,7 +118,7 @@ namespace ProjektG1.Controllers
             edytowanyTask.DataDodania = DateTime.Now;
             edytowanyTask.Termin = DateTime.Today;
             context.SaveChanges();
-            
+
             return RedirectToAction("Zadanie", "Task");
         }
 
@@ -114,7 +130,7 @@ namespace ProjektG1.Controllers
             var doUsuniecia = context.Tasks.Single(z => z.ID == id);
             context.Tasks.Remove(doUsuniecia);
             context.SaveChanges();
-            
+
             return RedirectToAction("Zadanie", "Task");
         }
 

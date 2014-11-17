@@ -1,4 +1,4 @@
-﻿//jQuery scripts - mpxx24
+﻿//jQuery scripts - mpxx240
 
 $(function () {
 

@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Models\PHash.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\TaskContext.cs" />
+    <Compile Include="Models\TaskGroup.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
