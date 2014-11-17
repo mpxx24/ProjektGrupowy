@@ -4,6 +4,8 @@
 	All document styles
 */
 
+@import url(fonts.css);
+
 html {
     min-height: 100%;
     position: relative;
@@ -12,12 +14,13 @@ html {
 body {
     background-image: url("/img/patt2.jpg");
     background-attachment: fixed;
-    margin-bottom: 100px;
+    margin-bottom: 20px;
+    font-family: Cantarell;
 }
 
 ::selection {
-	background: rgba(255,0,0,0.5);
-	color: rgba(234,0,0,0.8);
+	background: #444;;
+	color: #888;
 }
 
 .wrapper {
@@ -35,7 +38,7 @@ body {
 }!
 */
 .section {	
-	margin-top: 100px;
+	margin: 100px 0 0 0;
 /*	background: rgba(255,255,255,0.5);
 	box-shadow: 0 0 5px #888;*/
 }
@@ -48,6 +51,10 @@ body {
 	background: rgba(0,0,0,0);
 	border-radius: 0 !important;
 }
+/*.navbar:hover {
+    background: rgba(0,0,0,0.3);
+    /*transition: all .2s ease-in-out;
+}*/
 
 .usernameStyle {
     line-height: 50px;
@@ -71,8 +78,9 @@ body {
 .flex-wrapper {
 	padding: 20px 40px 20px 40px;
 	background-color: rgba(255,255,255,.9);
-	border: 1px solid rgba(255,255,255,.9);
-	border-radius: 5px;
+	border-top: 1px solid rgba(255,255,255,.9);
+    border-bottom: 1px solid rgba(0,0,0,.9);
+	border-radius: 1px;
 	box-shadow: 0 1px 5px #000;
 }
 
@@ -85,19 +93,11 @@ body {
 	color: #888;
 	font-weight: normal;
 	font-size: 12pt;
+    font-family: Cantarell;
 }
 
-.small-text {
-	font-size: small;
-}
-
-.small-text:before {
-    content: '{ ';
-    color: red;
-}
-.small-text:after {
-    content: " }";
-    color: red;
+.hello-text {
+    font-family: Cantarell, cursive;
 }
 
 #form-area {
@@ -112,12 +112,27 @@ body {
 
 footer {
 	width: 100%;
-	height: 100px;
+	height: 20px;
 	position: absolute;
 	bottom: 0;
+    background: rgba(0,0,0,0.5);
 	color: #fff;
 	font: x-small Consolas;
-	padding-top: 20px;
+    line-height: 20px;
+}
+
+.footer-text {
+	font-size: x-small;
+    margin-bottom: 0;
+}
+
+.footer-text:before {
+    content: '{ ';
+    color: red;
+}
+.footer-text:after {
+    content: " }";
+    color: red;
 }
 
 .appName {
@@ -177,9 +192,15 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover {
 	text-decoration: underline !important;
 	color: white !important;
 	text-decoration: none !important;
+
+    transition: color .2s ease-in;
 }
 
 /* text effects for all */
 .text-space-b-a {
     margin: 20px 0 20px 0;
+}
+
+input[type="submit"].usun {
+    background: black;
 }

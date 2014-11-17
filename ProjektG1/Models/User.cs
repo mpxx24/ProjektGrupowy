@@ -30,6 +30,7 @@ namespace ProjektG1.Models
         //[Required(ErrorMessage = "pole wymagane")]
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$",
         ErrorMessage = "podaj prawidłowy adres email")]
+        [DisplayName("Email")]
         public string MailAdress { get; set; }
 
 

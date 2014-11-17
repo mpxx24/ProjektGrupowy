@@ -29,36 +29,36 @@
                     @if (@grupa.ListaTaskow != null)
                     {
                         foreach (var item in @grupa.ListaTaskow)
+            {
+                <div class="task" title=task @i>
+                    <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="btn btn-default buttonTask" />
+
+                    <div class="toggler" id="toggler">
+                        <p>
+                            Dodano przez: @item.OsobaDodajacaZadanie
+                            <br />
+                            Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
+                            <br />
+                            Data dodania: @item.DataDodania
+                            <br />
+                            komentarz: @item.Komentarz
+                        </p>
+                    </div>
+
+                    <div class="task-controls-area">
+                        @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
                         {
-                            <div class="task" title=task @i>
-                                <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="btn-default buttonTask" />
-
-                                <div class="toggler" id="toggler">
-                                    <p>
-                                        Dodano przez: @item.OsobaDodajacaZadanie
-                                        <br />
-                                        Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
-                                        <br />
-                                        Data dodania: @item.DataDodania
-                                        <br />
-                                        komentarz: @item.Komentarz
-                                    </p>
-                                </div>
-
-                                <div class="task-controls-area">
-                                    @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
-                                    {
-                                        <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID class="btn-default inline" />
-                                    }
-                                    @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
-                                    {
-                                        <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID class="btn-default inline" />
-                                    }
-                                </div>
-
-                            </div>
-                                    i++;
+                            <button type="submit" name="ButtonUsun" value="Usun" id=@item.ID class="btn btn-default inline usun" ><i class="fa fa-trash"></i></button>
                         }
+                        @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
+                        {
+                            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID class="btn btn-default inline" />
+                        }
+                    </div>
+
+                </div>
+                    i++;
+                }
                     }
                     @using (Html.BeginForm("DodajTask", "Task"))
                     {
@@ -90,32 +90,32 @@
                                 <br />
                                 komentarz: @item.Komentarz
                             </p>
-                        </div>
+        </div>
 
                         <div class="task-controls-area">
                             @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
-                            {
+                                        {
                                 <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID class="btn-default inline" />
-                            }
+                                        }
                             @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
-                            {
+                                        {
                                 <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID class="btn-default inline" />
                             }
                         </div>
 
                     </div>
                             i++;
-                }
+                                        }
             </div>*@
 
         @*<div class="col-lg-9 col-md-9">
                 <div class="col-lg-4 col-md-4 task-group" id="droppable">
                     <p class="task-group-name">Group name</p>
-                    @using (Html.BeginForm("DodajTask", "Task"))
-                    {
-                        <input type="submit" value="Dodaj" />
-                    }
-                </div>
+                @using (Html.BeginForm("DodajTask", "Task"))
+                {
+                    <input type="submit" value="Dodaj" />
+                }
+            </div>
 
             </div>*@
     </div>
