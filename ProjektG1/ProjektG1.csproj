@@ -169,9 +169,11 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="css\css-after_register.css" />
     <Content Include="css\css-bg.css" />
     <Content Include="css\css-index.css" />
     <Content Include="css\css-zadanie.css" />
+    <Content Include="css\fonts.css" />
     <Content Include="Global.asax" />
     <Content Include="img\404.jpg" />
     <Content Include="img\bg3.jpg" />

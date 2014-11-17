@@ -17,7 +17,7 @@
             @foreach (Task item in ViewBag.Zadanie)
             {
                 <div class="task" title=task @i>
-                    <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="btn-default buttonTask" />
+                    <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="btn btn-default buttonTask" />
 
                     <div class="toggler" id="toggler">
                         <p>
@@ -34,17 +34,17 @@
                     <div class="task-controls-area">
                         @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
                         {
-                            <input type="submit" name="ButtonUsun" value="Usuń" id=@item.ID class="btn-default inline" />
+                            <button type="submit" name="ButtonUsun" value="Usun" id=@item.ID class="btn btn-default inline usun" ><i class="fa fa-trash"></i></button>
                         }
                         @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
                         {
-                            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID class="btn-default inline" />
+                            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID class="btn btn-default inline" />
                         }
                     </div>
 
                 </div>
                     i++;
-                }
+               } 
         </div>
 
         <div class="col-lg-9 col-md-9">
@@ -60,11 +60,11 @@
                                         @*potem tu musze pozmieniac, ale na razie niech tak zostanie  *@
                                         @using (Html.BeginForm("Delete", "Task")) 
                                         {
-                                            <input type="submit" name="ButtonUsun" value="del" class="btn-tm btn-delete inline">
+                                            <input type="submit" name="ButtonUsun" value="del" class="btn btn-tm btn-delete inline">
                                         }
                                         @using (Html.BeginForm("EdytujTask", "Task"))
                                         {
-                                            <input type="submit" name="ButtonEdytuj" value="edit" class="btn-tm btn-edit inline">
+                                            <input type="submit" name="ButtonEdytuj" value="edit" class="btn btn-tm btn-edit inline">
                                         }
                                     </td>
                                 </tr>

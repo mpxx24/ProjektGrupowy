@@ -1,10 +1,13 @@
 ﻿@{
     ViewBag.Title = "PoRejestracji";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";  
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/css-after_register.css")" />
 }
 
-<h2>PoRejestracji</h2>
+<div class="section">
+    <div class="container flex-wrapper text-center">
+        <h2>Dziękujemy za rejestrację!</h2>
+        Możesz się&nbsp;@Html.ActionLink("zalogować!", "Login", "User")
+    </div>
+</div>
 
-Dzięki za rejestrację!
-
-teraz możesz się 
-@Html.ActionLink("zalogować :)", "Login", "User")
