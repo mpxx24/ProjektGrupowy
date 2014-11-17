@@ -25,9 +25,10 @@ namespace ProjektG1.Controllers
 
             var taskContext = new TaskContext();
             var listaTaskow = new List<Task>();
+            var listaGrup = new List<TaskGroup>();
 
             var vUser = this.User.Identity.Name;
-            
+
             foreach (var task in taskContext.Tasks)
             {
                 if (task.OsobaOdpowiedzialna == vUser)
@@ -36,8 +37,16 @@ namespace ProjektG1.Controllers
                 }
             }
 
-            ViewBag.Zadanie = listaTaskow;
+            foreach (var grupa in taskContext.TaskGroups)
+            {
+                if (grupa.User.Username == vUser)
+                {
+                    listaGrup.Add(grupa);
+                }
+            }
 
+            ViewBag.Zadanie = listaTaskow;
+            ViewBag.Grupy = listaGrup;
             return View();
 
         }
@@ -58,7 +67,6 @@ namespace ProjektG1.Controllers
                     select u.UserId;
             var id = q.Single();
 
-
             var noweZadanie = new Task()
             {
                 Tytul = Request["Tytul"],
@@ -67,10 +75,8 @@ namespace ProjektG1.Controllers
                 User = taskContext.Users.Single(x => x.UserId == id),
                 Komentarz = Request["Komentarz"],
                 DataDodania = DateTime.Now,
-                Termin = Convert.ToDateTime(Request["Termin"])
-                //TaskGroup = taskContext.TaskGroups.Single(),
-                
-                
+                Termin = Convert.ToDateTime(Request["Termin"]),
+                TaskGroup = taskContext.TaskGroups.Single(x => x.TaskGroupId == 3) //DYNAMIC PLZ
             };
 
             if (noweZadanie.OsobaOdpowiedzialna != User.Identity.Name)
@@ -84,6 +90,7 @@ namespace ProjektG1.Controllers
 
                 mailC.SendEmail(taskContext.Users.Single(x => x.UserId == id2));
             }
+
 
             taskContext.Tasks.Add(noweZadanie);
             taskContext.SaveChanges();

@@ -2,11 +2,57 @@
 
 @{
     ViewBag.Title = "Register";
-    Layout = "~/Views/Shared/LayoutPage.cshtml";
-    
+    Layout = "~/Views/Shared/LayoutPage.cshtml";    
 }
 
-<h2>Register</h2>
+<div class="section">
+    <div class="container">
+
+        <div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3 wrapper">
+            <p class="text"><h2>Register</h2></p>
+            @using(@Html.BeginForm("Register","User", FormMethod.Post, new { @class="form-horizontal" }))
+            {
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4">
+                        @Html.LabelFor(m => m.Username)
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-lg-offset-2 col-md-offset-2">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "my-input form-control", placeholder = "Username" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4">
+                            @Html.LabelFor(m => m.Password)
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-lg-offset-2 col-md-offset-2">
+                        @Html.PasswordFor(m => m.Password, new { @class = "my-input form-control", placeholder = "Password" })
+                    </div> 
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-lg-4 col-md-4">
+                        @Html.LabelFor(m => m.MailAdress)
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-lg-offset-2 col-md-offset-2">
+                        @Html.TextBoxFor(m => m.MailAdress, new { @class = "my-input form-control", placeholder = "Mail address" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-lg-6 col-md-6 col-lg-offset-6 col-md-offset-6">
+                        <input type="submit" value="Register" class="btn btn-primary col-lg-12 col-md-12"/>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>
+
+
+@*<h2>Register</h2>
 
 @using (Html.BeginForm())
 {
@@ -21,4 +67,4 @@
     <input type="submit" value="Dodaj Użytkownika" />
 }
 <br />
-@Html.ActionLink("lista tasków", "Zadanie", "Task")
+@Html.ActionLink("lista tasków", "Zadanie", "Task")*@

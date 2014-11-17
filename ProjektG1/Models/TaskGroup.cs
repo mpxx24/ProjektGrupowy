@@ -9,7 +9,7 @@ namespace ProjektG1.Models
     {
         public int TaskGroupId { get; set; }
         public string GroupName { get; set; }
-        public IEnumerable<Task> ListaTaskow { get; set; }
+        public virtual ICollection<Task> ListaTaskow { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }
     }
