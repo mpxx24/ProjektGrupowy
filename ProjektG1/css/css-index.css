@@ -4,7 +4,7 @@
 	All document styles
 */
 
-@import url(fonts.css);
+/*@import url('fonts.css');*/
 
 html {
     min-height: 100%;
@@ -15,7 +15,6 @@ body {
     background-image: url("/img/patt2.jpg");
     background-attachment: fixed;
     margin-bottom: 20px;
-    font-family: Cantarell;
 }
 
 ::selection {
@@ -166,10 +165,34 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover {
 /* buttons */
 .my-button {
     border-radius: 0 !important;
-
 }
 .my-button:hover {
 
+}
+
+.icon-button {
+    height: auto;
+    background: transparent;
+    border: none;
+
+}
+.icon-button:focus, .icon-button:hover {
+    border: none;
+    outline: none;
+    color: rgba(255,255,255,0.5);
+}
+
+.icon-delete {
+}
+.icon-delete:hover {
+    color: rgba(255,0,0,0.5);
+}
+
+.icon-add-task {
+    color: black;
+}
+.icon-add-task:hover {
+    color: green;
 }
 
 /* Labels */

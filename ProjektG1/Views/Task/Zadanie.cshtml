@@ -18,60 +18,65 @@
             <input type="submit" name="ButtonAddGroup" value="Dodaj Grupę" />
         }
 
-        @foreach (TaskGroup grupa in ViewBag.Grupy)
-        {
-            <div class="col-lg-9 col-md-9">
+        
+            <div class="col-lg-12 col-md-12 group-list">
+@foreach (TaskGroup grupa in ViewBag.Grupy)
+{
                 <div class="col-lg-4 col-md-4 task-group" id="droppable" title="@grupa.TaskGroupId">
-                    <p class="task-group-name">@grupa.GroupName</p>
-                    @{
-                        int i = 1;
-                    }
-                    @if (@grupa.ListaTaskow != null)
-                    {
-                        foreach (var item in @grupa.ListaTaskow)
-            {
-                <div class="task" title=task @i>
-                    <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="btn btn-default buttonTask" />
+                    <div class="task-list">
+                        <p class="task-group-name">@grupa.GroupName</p>
+                        @{
+                            int i = 1;
+                        }
+                        @if (@grupa.ListaTaskow != null)
+                        {
+                            foreach (var item in @grupa.ListaTaskow)
+                            {
+                                <div class="task" title="task @i">
+                                    <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="btn btn-default buttonTask" />
 
-                    <div class="toggler" id="toggler">
-                        <p>
-                            Dodano przez: @item.OsobaDodajacaZadanie
-                            <br />
-                            Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
-                            <br />
-                            Data dodania: @item.DataDodania
-                            <br />
-                            komentarz: @item.Komentarz
-                        </p>
+                                    <div class="toggler" id="toggler">
+                                        <p>
+                                            Dodano przez: @item.OsobaDodajacaZadanie
+                                            <br />
+                                            Osoba odpowiedzialna: @item.OsobaOdpowiedzialna
+                                            <br />
+                                            Data dodania: @item.DataDodania
+                                            <br />
+                                            komentarz: @item.Komentarz
+                                        </p>
+                                    </div>
+
+                                    <div class="task-controls-area">
+                                        @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
+                                        {
+                                            <button type="submit" name="ButtonUsun" value="Usun" title="usun" id=@item.ID class="btn btn-default inline usun"><i class="fa fa-trash"></i></button>
+                                        }
+                                        @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
+                                        {
+                                            <button type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID class="btn btn-default inline"><i class="fa fa-pencil"></i></button>
+                                        }
+                                    </div>
+
+                                </div>
+                                        i++;
+                            }
+                        }
+                        @using (Html.BeginForm("DodajTask", "Task"))
+                        {
+                            //hidden textbox/label/cokolwiek ?
+                            ViewBag.GrupaIdTest = @grupa.TaskGroupId;
+                            <button type="submit" class="icon-button icon-add-task"><i class="fa fa-plus"></i></button>
+                        }
                     </div>
-
                     <div class="task-controls-area">
-                        @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
-                        {
-                            <button type="submit" name="ButtonUsun" value="Usun" id=@item.ID class="btn btn-default inline usun" ><i class="fa fa-trash"></i></button>
-                        }
-                        @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
-                        {
-                            <input type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID class="btn btn-default inline" />
-                        }
+                    
+                    <button type="submit" class="icon-button icon-delete" title="Delete group"><i class="fa fa-trash"></i></button>
                     </div>
-
                 </div>
-                    i++;
-                }
-                    }
-                    @using (Html.BeginForm("DodajTask", "Task"))
-                    {
-                        //hidden textbox/label/cokolwiek ?
-                        ViewBag.GrupaIdTest = @grupa.TaskGroupId;
-                        <input type="submit" value="Dodaj" />
-                    }
-                    <input type="submit" value="Usuń Grupę" />
-
-                </div>
-
+}
             </div>
-        }
+        
 
         @*<div class="col-lg-3 col-md-3">
                 @{ int i = 1;}
