@@ -70,7 +70,12 @@
                         }
                     </div>
                     <div class="task-controls-area">
+                        @*@using (Html.BeginForm("DeleteGroup", "Group", new {id = grupa.TaskGroupId}))
+                        {
+                            <button type="submit" class="icon-button icon-delete" title="Delete group"><i class="fa fa-trash"></i></button>
+                        }*@
                         <button type="submit" class="icon-button icon-delete" title="Delete group"><i class="fa fa-trash"></i></button>
+
                     </div>
                 </div>
             }

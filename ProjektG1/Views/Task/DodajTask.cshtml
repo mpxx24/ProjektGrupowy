@@ -12,7 +12,7 @@
     @Html.LabelFor(m => m.Tytul)
     @Html.TextBoxFor(m => m.Tytul)
     @Html.LabelFor(m => m.OsobaOdpowiedzialna)
-    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna)
+    @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new{@Value = User.Identity.Name})
     @Html.LabelFor(m => m.Termin)
     @Html.TextBoxFor(m => m.Termin, new{ @class="date-picker" })
     @Html.LabelFor(m => m.Komentarz)
