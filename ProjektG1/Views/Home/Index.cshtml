@@ -19,14 +19,12 @@
 
 
                     <div id="form-area">
-
-                        @using (@Html.BeginForm("Login","User", FormMethod.Post, new { @class = "form-horizontal"}))
+                        @using (@Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "form-horizontal" }))
                         {
-
                             <div class="form-group">
                                 <div class="col-md-12 col-lg-12">
                                     @*<input type="text" class="form-control my-input" placeholder="login">*@
-                                    @Html.TextBoxFor(u => u.Username, new { @class="form-control my-input", placeholder ="login" })
+                                    @Html.TextBoxFor(u => u.Username, new { @class = "form-control my-input", placeholder = "login" })
                                     @Html.ValidationMessageFor(u => u.Username)
                                 </div>
                             </div>
@@ -34,7 +32,7 @@
                             <div class="form-group">
                                 <div class="col-md-12 col-lg-12">
                                     @*<input type="password" class="form-control my-input" placeholder="password">*@
-                                    @Html.PasswordFor(u => u.Password, new { @class="form-control my-input", placeholder="password"})
+                                    @Html.PasswordFor(u => u.Password, new { @class = "form-control my-input", placeholder = "password" })
                                     @Html.ValidationMessageFor(u => u.Password)
                                 </div>
                             </div>
@@ -55,12 +53,16 @@
                                     </div>
                                 </div>
                             </div>
-
                         }
 
                     </div>
 
-                    <p class="text"><small>Don't have an account?&nbsp;@Html.ActionLink("Register", "Register", "User", null, new { style="text-decoration: underline;"})</small></p>
+                    <p class="text">
+                        <small>
+                            Don't have an account?&nbsp;
+                            @Html.ActionLink("Register", "Register", "User", null, new { style = "text-decoration: underline;" })
+                        </small>
+                    </p>
 
                 </div>
             </div>

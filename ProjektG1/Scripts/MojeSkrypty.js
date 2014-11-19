@@ -19,9 +19,7 @@
 
     //get id attribute of parent div
     $(".findParentsId").click(function () {
-        //var mDiv = $(this).closest("div").attr("title"); //closest
-        var mDiv = $(this).parents("div").slice(1,2).attr("title"); //2nd closest
-        alert(mDiv);
+        var mDiv = $(this).parents("div").slice(1,2).attr("title");
         $(function () {
             sessionStorage.GroupId = mDiv;
         });
