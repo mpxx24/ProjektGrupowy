@@ -47,7 +47,6 @@ body {
 */
 
 .navbar {
-	background: rgba(0,0,0,0);
 	border-radius: 0 !important;
 }
 /*.navbar:hover {
@@ -182,18 +181,6 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover {
     color: rgba(255,255,255,0.5);
 }
 
-.icon-delete {
-}
-.icon-delete:hover {
-    color: rgba(255,0,0,0.5);
-}
-
-.icon-add-task {
-    color: black;
-}
-.icon-add-task:hover {
-    color: green;
-}
 
 /* Labels */
 .my-label {

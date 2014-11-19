@@ -9,12 +9,12 @@
 
     //do not show toggler on page load
     $(document).ready(function () {
-        $(".toggler").toggle(false);
+        $(".task-info").toggle(false);
     });
 
     //show toggle on click
-    $(".buttonTask").click(function () {
-        $(this).siblings(".toggler").toggle("blind");
+    $(".button-task-text").click(function () {
+        $(this).siblings(".task-info").toggle("blind");
     });
 
     //get id attribute of parent div
