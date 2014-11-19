@@ -223,9 +223,6 @@
     <Content Include="Views\Shared\LayoutPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\User\Login.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\User\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>

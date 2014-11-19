@@ -17,8 +17,8 @@
     @Html.TextBoxFor(m => m.Termin, new{ @class="date-picker" })
     @Html.LabelFor(m => m.Komentarz)
     @Html.TextBoxFor(m => m.Komentarz)
-    <input type="submit" value="Create " />
-    
+    @Html.HiddenFor(m=>m.TaskGroupId, new {@id="TaskGroupIdRetriever"})
+    <input type="submit" value="Create"/>
 }
 
 <p>

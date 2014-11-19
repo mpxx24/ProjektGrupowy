@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using System.Web.Security;
 using ProjektG1.Models;
 
@@ -15,7 +16,7 @@ namespace ProjektG1.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            return View();
+            return RedirectToAction("Index","Home");
         }
 
         [HttpPost]
@@ -34,7 +35,7 @@ namespace ProjektG1.Controllers
                     ModelState.AddModelError("", "Niepoprawne dane");
                 }
             }
-            return View(user);
+            return RedirectToAction("Index","Home", new {user});
         }
 
         [HttpGet]
