@@ -32,7 +32,7 @@ namespace ProjektG1.Controllers
             }
             else
             {
-                const string blad = "BadLoginInfo";
+                const string blad = "WrongLoginInfo";
                 return RedirectToAction("Index", "Home", new {blad});
             }
         }
