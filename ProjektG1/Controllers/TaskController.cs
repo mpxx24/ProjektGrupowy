@@ -67,6 +67,8 @@ namespace ProjektG1.Controllers
                     select u.UserId;
             var id = q.Single();
 
+            var mojaGrupa = Convert.ToInt32(Request["TaskGroupId"]);
+
             var noweZadanie = new Task()
             {
                 Tytul = Request["Tytul"],
@@ -76,7 +78,7 @@ namespace ProjektG1.Controllers
                 Komentarz = Request["Komentarz"],
                 DataDodania = DateTime.Now,
                 Termin = Convert.ToDateTime(Request["Termin"]),
-                TaskGroup = taskContext.TaskGroups.Single(x => x.TaskGroupId == 3) //DYNAMIC PLZ
+                TaskGroup = taskContext.TaskGroups.Single(x => x.TaskGroupId == mojaGrupa) 
             };
 
             if (noweZadanie.OsobaOdpowiedzialna != User.Identity.Name)
@@ -90,8 +92,7 @@ namespace ProjektG1.Controllers
 
                 mailC.SendEmail(taskContext.Users.Single(x => x.UserId == id2));
             }
-
-
+            
             taskContext.Tasks.Add(noweZadanie);
             taskContext.SaveChanges();
             return RedirectToAction("Zadanie", "Task");

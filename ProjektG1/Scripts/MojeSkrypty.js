@@ -1,9 +1,7 @@
-﻿//jQuery scripts - mpxx240
-
-$(function () {
+﻿$(function () {
 
     //datapicker 
-    $('.date-picker').datepicker();
+    $(".date-picker").datepicker();
 
     //drag and drop
     $(".task").draggable({ revert: "invalid" });
@@ -18,4 +16,19 @@ $(function () {
     $(".buttonTask").click(function () {
         $(this).siblings(".toggler").toggle("blind");
     });
+
+    //get id attribute of parent div
+    $(".findParentsId").click(function () {
+        var mDiv = $(this).closest("div").attr("title");
+        $(function () {
+            sessionStorage.GroupId = mDiv;
+        });
+    });
+
+    $(document).ready(function () {
+        $("#TaskGroupIdRetriever").attr("value", sessionStorage.GroupId);
+    });
+
 });
+
+
