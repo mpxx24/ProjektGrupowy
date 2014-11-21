@@ -33,7 +33,10 @@ namespace ProjektG1.Controllers
             {
                 if (task.OsobaOdpowiedzialna == vUser)
                 {
-                    listaTaskow.Add(task);
+                    if (task.Zakonczone == false)
+                    {
+                        listaTaskow.Add(task);
+                    }
                 }
             }
 
@@ -76,6 +79,7 @@ namespace ProjektG1.Controllers
                 OsobaDodajacaZadanie = User.Identity.Name,
                 User = taskContext.Users.Single(x => x.UserId == id),
                 Komentarz = Request["Komentarz"],
+                Zakonczone = false,
                 DataDodania = DateTime.Now,
                 Termin = Convert.ToDateTime(Request["Termin"]),
                 TaskGroup = taskContext.TaskGroups.Single(x => x.TaskGroupId == mojaGrupa) 
@@ -135,5 +139,13 @@ namespace ProjektG1.Controllers
             return RedirectToAction("Zadanie", "Task");
         }
 
+        public ActionResult EndTask(int id)
+        {
+            var context = new TaskContext();
+            var task = context.Tasks.Single(m => m.ID == id);
+            task.Zakonczone = true;
+            context.SaveChanges();
+            return RedirectToAction("Zadanie", "Task");
+        }
     }
 }

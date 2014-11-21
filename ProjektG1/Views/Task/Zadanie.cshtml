@@ -32,49 +32,61 @@
                             var i = 1;
                             foreach (var item in @grupa.ListaTaskow)
                             {
-                                <div class="task" title="task @i">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="button-task-text" />
-                                                    <div class="task-info">
-                                                        @{
-                                                            var timePassedD = (DateTime.Now - item.DataDodania).Days;
-                                                            var timePassedH = (DateTime.Now - item.DataDodania).Hours;
-                                                            var timePassedM = (DateTime.Now - item.DataDodania).Minutes;
-                                                            var timePassedS = (DateTime.Now - item.DataDodania).Seconds;
+                                if (item.Zakonczone != true)
+                                {
+
+                                    <div class="task" title="task @i">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="button-task-text" />
+                                                        <div class="task-info">
+                                                            @{
+                                                                var timePassedD = (DateTime.Now - item.DataDodania).Days;
+                                                                var timePassedH = (DateTime.Now - item.DataDodania).Hours;
+                                                                var timePassedM = (DateTime.Now - item.DataDodania).Minutes;
+                                                                var timePassedS = (DateTime.Now - item.DataDodania).Seconds;
+                                                            }
+                                                            <span class="text">@item.Komentarz</span>
+                                                            <br/>
+                                                            <span class="text">@timePassedD day(s), @timePassedH hour(s), @timePassedM minute(s) and @timePassedS second(s)</span>
+                                                            <p class="task-info-bar">
+                                                                przez <i>@item.OsobaDodajacaZadanie</i> dla <i>@item.OsobaOdpowiedzialna</i>&nbsp;|&nbsp;@item.DataDodania
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="task-controls-area inside" style="position: absolute; right: 0;">
+                                                        @using (Html.BeginForm("EndTask", "Task", new {id = item.ID}))
+                                                        {
+                                                            <button type="submit" name="ButtonZakoncz" value="Zakończone" title="zakoncz" id="japierdoletest"
+                                                                    class="icon-button btn-task">
+                                                                <i class="fa fa-check"></i>
+                                                            </button>
                                                         }
-                                                        <span class="text">@item.Komentarz</span>
-                                                        <br/>
-                                                        <span class="text">@timePassedD day(s), @timePassedH hour(s), @timePassedM minute(s) and @timePassedS second(s)</span>
-                                                        <p class="task-info-bar">
-                                                            przez <i>@item.OsobaDodajacaZadanie</i> dla <i>@item.OsobaOdpowiedzialna</i>&nbsp;|&nbsp;@item.DataDodania
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                                <td class="task-controls-area inside" style="position: absolute; right: 0;">
-                                                    @using (Html.BeginForm("Delete", "Task", new { id = item.ID }))
-                                                    {
-                                                        <button type="submit" name="ButtonUsun" value="Usun" title="usun" id=@item.ID
-                                                                class="icon-button icon-delete btn-task usun">
-                                                            <i class="fa fa-trash"></i>
-                                                        </button>
-                                                    }
-                                                    @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
-                                                    {
-                                                        <button type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID
-                                                                class="icon-button icon-edit btn-task">
-                                                            <i class="fa fa-pencil"></i>
-                                                        </button>
-                                                    }
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="task-clear"></div>
-                                                    i++;
+                                                        @using (Html.BeginForm("EdytujTask", "Task", new {id = item.ID}))
+                                                        {
+                                                            <button type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID
+                                                                    class="icon-button icon-edit btn-task">
+                                                                <i class="fa fa-pencil"></i>
+                                                            </button>
+                                                        }
+                                                        @using (Html.BeginForm("Delete", "Task", new {id = item.ID}))
+                                                        {
+                                                            <button type="submit" name="ButtonUsun" value="Usun" title="usun" id=@item.ID
+                                                                    class="icon-button icon-delete btn-task usun">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        }
+                                                    
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="task-clear"></div>
+                                    i++;
+                                }
                             }
                         }
 
