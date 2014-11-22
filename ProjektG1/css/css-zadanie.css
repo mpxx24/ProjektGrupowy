@@ -169,9 +169,11 @@
 }
 
 .button-task-text {
+    max-width: 80%;
     height: auto;
     border: none;
     background: none;
+    text-align: left;
 }
 .button-task-text:focus {
     outline: none;
