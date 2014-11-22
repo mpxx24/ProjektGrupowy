@@ -94,7 +94,24 @@ namespace ProjektG1.Controllers
                              select u.UserId;
                 var id2 = doKogo.Single();
 
-                mailC.SendEmail(taskContext.Users.Single(x => x.UserId == id2));
+                var thisUser = taskContext.Users.Single(x => x.UserId == id2);
+                mailC.SendEmail(thisUser);
+
+                if (thisUser.TaskGroups.Count.Equals(0))
+                {
+                    var grupa = new TaskGroup
+                    {
+                        User = thisUser,
+                        GroupName = "Grupa"
+                    };
+                    thisUser.TaskGroups.Add(grupa);
+                    noweZadanie.TaskGroup = grupa;
+                }
+                else
+                {
+                    var grupa = thisUser.TaskGroups.First();
+                    noweZadanie.TaskGroup = grupa;
+                }
             }
             
             taskContext.Tasks.Add(noweZadanie);
