@@ -29,8 +29,8 @@
                             <li>@Html.ActionLink("Sign out", "LogOut", "User", null, new { @class = "my-link" })</li>
                             <li>@Html.ActionLink("My Account", "DisplayAccData", "User", null, new { @class = "my-link" })</li>
                         }
-                        <li>@Html.ActionLink("About",null,null,null, new { @class="my-link" })</li>
-                        <li>@Html.ActionLink("Contact", null, null, null, new { @class = "my-link" })</li>
+                        <li>@Html.ActionLink("About","About","Home",null, new { @class="my-link" })</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home", null, new { @class = "my-link" })</li>
                     </ul>
                 </div>
             </div>

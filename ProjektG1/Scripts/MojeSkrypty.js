@@ -1,7 +1,7 @@
 ﻿$(function () {
 
     //datapicker 
-    $(".date-picker").datepicker();
+    $(".date-picker").datepicker({minDate: 0});
 
     //drag and drop
     $(".task").draggable({ revert: "invalid" });
@@ -16,7 +16,7 @@
     $(".button-task-text").click(function () {
         $(this).siblings(".task-info").toggle("blind");
     });
-
+    
     //get id attribute of parent div
     $(".findParentsId").click(function () {
         var mDiv = $(this).parents("div").slice(1,2).attr("title");

@@ -200,6 +200,8 @@
     <Content Include="Views\User\DisplayAccData.cshtml" />
     <Content Include="Views\User\EditAccData.cshtml" />
     <Content Include="Views\Error\Error404.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,21 +2,30 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutPage.cshtml";
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/css-bg.css")"/>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/css-bg.css")" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 }
 <!-- to do content -->
 
 <section class="section">
     <div class="container">
         <div class="row">
-
+            @{
+                if (Request.Url.ToString().Contains("blad"))
+                {
+                    <div class="alert alert-danger" role="alert" id="badLoginInfo"> Zły login lub hasło! </div>
+                }
+                else
+                {
+                    <div class="alert alert-danger" role="alert" style="display: none" id="badLoginInfo"> Zły login lub hasło! </div>
+                }
+            }
             <div class="col-md-5 col-lg-4 col-md-offset-4 col-lg-offset-4 text-center">
                 <div class="flex-wrapper">
+
                     <div class="text-area">
                         <p class="text hello-text">Hello! Login to your account below!</p>
                     </div>
-
 
                     <div id="form-area">
                         @using (@Html.BeginForm("Login", "User", FormMethod.Post, new { @class = "form-horizontal" }))
@@ -54,9 +63,7 @@
                                 </div>
                             </div>
                         }
-
                     </div>
-
                     <p class="text">
                         <small>
                             Don't have an account?&nbsp;

@@ -6,36 +6,35 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using System.Web.UI.WebControls.WebParts;
 using ProjektG1.Models;
 
 namespace ProjektG1.Controllers
 {
     public class UserController : Controller
     {
-        
+
         [HttpGet]
         public ActionResult Login()
         {
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
         public ActionResult Login(User user)
         {
             var hasher = new PHash();
-            if (ModelState.IsValid)
+
+            if (user.IsValid(user.Username, hasher.SHA1Hashuj(user.Password)))
             {
-                if (user.IsValid(user.Username, hasher.SHA1Hashuj(user.Password)))
-                {
-                    FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
-                    return RedirectToAction("Zadanie", "Task");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Niepoprawne dane");
-                }
+                FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
+                return RedirectToAction("Zadanie", "Task");
             }
-            return RedirectToAction("Index","Home", new {user});
+            else
+            {
+                const string blad = "WrongLoginInfo";
+                return RedirectToAction("Index", "Home", new {blad});
+            }
         }
 
         [HttpGet]
@@ -52,11 +51,11 @@ namespace ProjektG1.Controllers
             var nowyUser = new User()
             {
                 Username = user.Username,
-                Password =  hasher.SHA1Hashuj(user.Password),
+                Password = hasher.SHA1Hashuj(user.Password),
                 MailAdress = user.MailAdress
-                
+
             };
-            
+
             if (context.Users.Any(x => x.Username == nowyUser.Username))
             {
 
@@ -96,7 +95,7 @@ namespace ProjektG1.Controllers
 
             return View(editUser);
         }
-       
-        
+
+
     }
 }

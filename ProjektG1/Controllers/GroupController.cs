@@ -24,18 +24,26 @@ namespace ProjektG1.Controllers
             return RedirectToAction("Zadanie", "Task");
         }
 
-        public ActionResult DeleteGroup(int groupId)
+        [HttpPost]
+        public ActionResult DeleteGroup(int? groupId)
         {
-            var group = context.TaskGroups.Single(m => m.TaskGroupId == groupId);
-            var tasksInDelGroup = context.Tasks.Where(m => m.TaskGroupId == groupId).ToList();
-            foreach (var task in tasksInDelGroup)
+            if (groupId != null)
             {
-                context.Tasks.Remove(task);
+                var group = context.TaskGroups.Single(m => m.TaskGroupId == groupId);
+                var tasksInDelGroup = context.Tasks.Where(m => m.TaskGroupId == groupId).ToList();
+                foreach (var task in tasksInDelGroup)
+                {
+                    context.Tasks.Remove(task);
 
+                }
+                context.TaskGroups.Remove(group);
+                context.SaveChanges();
+                return RedirectToAction("Zadanie", "Task");
             }
-            context.TaskGroups.Remove(group);
-            context.SaveChanges();
-            return RedirectToAction("Zadanie", "Task");
+            else
+            {
+                return RedirectToAction("Zadanie", "Task");
+            }
         }
 
     }
