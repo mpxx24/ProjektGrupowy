@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             @{
-                if (Request.Url.ToString().Contains("blad"))
+                if (Request.Url.ToString().Contains("bladLog"))
                 {
                     <div class="alert alert-danger" role="alert" id="badLoginInfo"> Zły login lub hasło! </div>
                 }

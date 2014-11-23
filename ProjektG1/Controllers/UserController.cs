@@ -32,8 +32,8 @@ namespace ProjektG1.Controllers
             }
             else
             {
-                const string blad = "WrongLoginInfo";
-                return RedirectToAction("Index", "Home", new {blad});
+                const string bladLog = "WrongLoginInfo";
+                return RedirectToAction("Index", "Home", new {bladLog});
             }
         }
 
@@ -58,7 +58,8 @@ namespace ProjektG1.Controllers
 
             if (context.Users.Any(x => x.Username == nowyUser.Username))
             {
-
+                const string bladUE = "UserAlreadyExists";
+                return RedirectToAction("Register", "User", new { bladUE });
             }
             else
             {

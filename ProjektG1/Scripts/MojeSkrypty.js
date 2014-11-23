@@ -29,6 +29,9 @@
         $("#TaskGroupIdRetriever").attr("value", sessionStorage.GroupId);
     });
 
+    $(function() {
+        $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
+    });
 });
 
 
