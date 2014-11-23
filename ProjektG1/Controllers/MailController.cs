@@ -11,18 +11,9 @@ namespace ProjektG1.Controllers
 {
     public class MailController : Controller
     {
-        //
-        // GET: /Mail/
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         [HttpPost]
         public void SendEmail(User doKogo)
         {
-            //var tUser = User.Identity.Name;
             var eMail = new Mail()
             {
                 From = "projektgrupowy1@gmail.com",

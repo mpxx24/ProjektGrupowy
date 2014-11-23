@@ -13,7 +13,6 @@ namespace ProjektG1.Controllers
 {
     public class UserController : Controller
     {
-
         [HttpGet]
         public ActionResult Login()
         {
