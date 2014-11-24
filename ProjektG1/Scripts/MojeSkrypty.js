@@ -27,6 +27,14 @@
     $(function() {
         $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
     });
+
+    $("#AddTaskButton").click(function() {
+        $("#dodajTask").show();
+    });
+
+    $("#CreateTaskButton").click(function () {
+        $("#dodajTask").hide();
+    });
 });
 
 

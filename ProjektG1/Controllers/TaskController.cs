@@ -158,7 +158,15 @@ namespace ProjektG1.Controllers
         {
             var context = new TaskContext();
             var task = context.Tasks.Single(m => m.ID == id);
-            task.Zakonczone = true;
+            if (!task.Zakonczone)
+            {
+                task.Zakonczone = true;
+            }
+            else
+            {
+                task.Zakonczone = false;
+            }
+            
             context.SaveChanges();
             return RedirectToAction("Zadanie", "Task");
         }
