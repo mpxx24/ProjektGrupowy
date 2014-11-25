@@ -35,6 +35,10 @@
     $("#CreateTaskButton").click(function () {
         $("#dodajTask").hide();
     });
+
+    //$(function() {
+    //    $("[name='ButtonTask'").attr
+    //}
 });
 
 

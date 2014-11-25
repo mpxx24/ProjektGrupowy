@@ -2,28 +2,56 @@
 
 @{
     ViewBag.Title = "DodajTask";
-    //Layout = "~/Views/Shared/LayoutPage.cshtml";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
 }
 
-<div style="margin-top: 200px;" class="flex-wrapper container col-lg-6 col-lg-offset-3">
-    <h2>DodajTask</h2>
+<div  class="container">
+    <div class="col-lg-4 col-lg-offset-4">
+        <div class="flex-wrapper">
+            <h2>DodajTask</h2>
 
-    @using (Html.BeginForm("Create", "Task", FormMethod.Post, new { @class = "form-horizontal" }))
-    {
-        <div class="form-group">
-            @Html.TextBoxFor(m => m.Tytul, new { @placeholder = "Task title" })
-        </div>
-        <div class="form-group">
-            @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new { @Value = User.Identity.Name })
-        </div>
-        <div class="form-group">@Html.TextBoxFor(m => m.Termin, new { @class = "date-picker", @placeholder="Termin" })</div>
-        <div class="form-group">@Html.TextAreaFor(m => m.Komentarz, new { @placeholder = "Komentarz" })</div>
-        <div class="form-group">@Html.HiddenFor(m => m.TaskGroupId, new { @id = "TaskGroupIdRetriever" })</div>
-        <div class="form-group"><input type="submit" value="Create" id="CreateTaskButton"/></div>        
-        
-    }
+            <div id="form-area">
+                @using (Html.BeginForm("Create", "Task", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            @Html.TextBoxFor(m => m.Tytul, new { @placeholder = "Task title", @class = "my-input form-control" })
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new { @Value = User.Identity.Name, @class = "my-input form-control" })
+                        </div>       
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            @Html.TextBoxFor(m => m.Termin, new { @class = "date-picker my-input form-control", @placeholder = "Termin" })
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            @Html.TextAreaFor(m => m.Komentarz, new { @placeholder = "Komentarz", @class = "my-input form-control" })
+                        </div>
+                    </div>
+                    
+                    <div>
+                        @Html.HiddenFor(m => m.TaskGroupId, new { @id = "TaskGroupIdRetriever", @class = "my-input form-control" })
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn btn-primary my-button col-lg-12" id="CreateTaskButton">Create</button>
+                        </div>
+                    </div>
 
-    <p>
-        @Html.ActionLink("Powrót", "Zadanie")
-    </p>
+                }
+            </div>
+
+            <p>
+                <i class="fa fa-arrow-left">&nbsp;@Html.ActionLink("Powrót", "Zadanie")</i>
+            </p>
+        </div>
+    </div>
 </div>
