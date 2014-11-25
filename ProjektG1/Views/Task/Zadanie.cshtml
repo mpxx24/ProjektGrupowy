@@ -13,10 +13,16 @@
 <div class="container">
     <nav class="navbar tasks-navbar">
         <div class="col-lg-12 col-md-12" style="line-height: 50px;">
-            @using (Html.BeginForm("AddGroup", "Group"))
-            {
-                <button type="submit" name="ButtonAddGroup" class="icon-button my-link"><i class="fa fa-plus"></i>&nbsp;Add Group</button>
-            }
+            <ul class="nav navbar-nav">
+                <li>
+                        @*<button type="submit" name="ButtonAddGroup" class="icon-button my-link"><i class="fa fa-plus"></i>&nbsp;Add Group</button>*@
+                        <a href="@Url.Action("AddGroup","Group")" class="my-link"><i class="fa fa-plus"></i>&nbsp;Add group</a>
+                </li>
+                <li>
+                    @*<i class="fa fa-group">@Html.ActionLink("Add Friend",null,null,null, new { @class="my-link"})</i>*@
+                    <a href="@Url.Action("Zadanie","Task")" class="my-link"><i class="fa fa-group"></i>&nbsp;Add group</a>
+                </li>
+            </ul>
         </div>
     </nav>
     <div class="col-lg-12 col-md-12">
@@ -26,6 +32,24 @@
                 <div class="task-group" id="droppable" title="@grupa.TaskGroupId">
                     <div class="items">
                         <p class="task-group-name">@grupa.GroupName @grupa.TaskGroupId</p>
+                        
+                        <div class="editor" style="display: none;">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="text" value="@grupa.GroupName @grupa.TaskGroupId" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button type="submit">Edit</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
 
                         @if (@grupa.ListaTaskow != null)
                         {
@@ -35,11 +59,12 @@
                                 var czyZakonczone = item.Zakonczone.ToString();
                                 <div class="task-background">
                                 <div class="task" title="task @i">
-                                    <table>
+                                    <table style="width: 100%;">
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <input type="submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="button-task-text" title="@czyZakonczone" />
+                                                    @*<input type=" submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="button-task-text" title="@czyZakonczone" />*@
+                                                    <button type="submit" name="ButtonTask" id="ButtonTask" class="button-task-text" title="@czyZakonczone">@item.Tytul</button>
                                                     <div class="task-info">
                                                         @{
                                                             var timePassedD = (DateTime.Now - item.DataDodania).Days;
@@ -47,11 +72,12 @@
                                                             var timePassedM = (DateTime.Now - item.DataDodania).Minutes;
                                                             var timePassedS = (DateTime.Now - item.DataDodania).Seconds;
                                                         }
-                                                        <span class="text">@item.Komentarz</span>
+                                                        <span class="task-comment">@item.Komentarz</span>
                                                         <br />
-                                                        <span class="text">@timePassedD day(s), @timePassedH hour(s), @timePassedM minute(s) and @timePassedS second(s)</span>
+                                                        
                                                         <p class="task-info-bar">
-                                                            przez <i>@item.OsobaDodajacaZadanie</i> dla <i>@item.OsobaOdpowiedzialna</i>&nbsp;|&nbsp;@item.DataDodania
+                                                            przez <i>@item.OsobaDodajacaZadanie</i> dla <i>@item.OsobaOdpowiedzialna</i>&nbsp;|&nbsp;@item.DataDodania<br />
+                                                            <i>@timePassedD day(s), @timePassedH hour(s), @timePassedM minute(s) and @timePassedS second(s)</i>
                                                         </p>
                                                     </div>
                                                 </td>
@@ -59,12 +85,9 @@
                                                     @using (Html.BeginForm("EndTask", "Task", new { id = item.ID }))
                                                     {
                                                         <button type="submit" name="ButtonZakoncz" value="Zakończone" title="zakoncz"
-                                                                class="icon-button btn-task">
+                                                                class="icon-button btn-task icon-endtask">
                                                             <i class="fa fa-check"></i>
                                                         </button>
-                                                    }
-                                                    @using (Html.BeginForm("EdytujTask", "Task", new { id = item.ID }))
-                                                    {
                                                         <button type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID
                                                                 class="icon-button icon-edit btn-task">
                                                             <i class="fa fa-pencil"></i>
