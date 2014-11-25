@@ -6,7 +6,6 @@
     ViewBag.Title = "Zadanie";
     Layout = "~/Views/Shared/LayoutPage.cshtml";
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/css-zadanie.css")" />
-
 }
 @*<div id="dodajTask" style="display: none;">
     @RenderPage("DodajTask.cshtml")
@@ -33,8 +32,8 @@
                             var i = 1;
                             foreach (var item in @grupa.ListaTaskow)
                             {
-
                                 var czyZakonczone = item.Zakonczone.ToString();
+                                <div class="task-background">
                                 <div class="task" title="task @i">
                                     <table>
                                         <tbody>
@@ -83,6 +82,7 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                </div>
                                 <div class="task-clear"></div>
                                                     i++;
                                 //}
@@ -91,11 +91,11 @@
 
                     </div>
                     <div class="task-controls-area">
-                        @using (Html.BeginForm("DodajTask", "Task")) 
-                        { 
+                        @using (Html.BeginForm("DodajTask", "Task"))
+                        {
                             <button type="submit" id="AddTaskButton" class="btn-tm-small icon-button icon-add-task findParentsId"><i class="fa fa-plus"></i>&nbsp;New Task</button>
                         }
-
+                        
                         @using (Html.BeginForm("DeleteGroup", "Group", new { groupId = grupa.TaskGroupId }))
                         {
                             <button type="submit" class="icon-button icon-delete" title="Delete group"><i class="fa fa-trash"></i></button>
