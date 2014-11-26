@@ -26,6 +26,9 @@
 
     $(function () {
         $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
+        //if ($("[class='button-task-text'][title='True']")) {
+        //    $(".end-task-icon").toggle()
+        //}
     });
 
     //$(".findParentsId").click(function () {
@@ -45,6 +48,11 @@
     //    });
 
     //});
+
+    ////litwa
+    //$(".task-group-name").click(function () {
+           
+    //})
 });
 
 
