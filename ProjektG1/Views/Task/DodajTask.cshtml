@@ -5,53 +5,52 @@
     Layout = "~/Views/Shared/LayoutPage.cshtml";
 }
 
-<div  class="container">
+<div class="container">
     <div class="col-lg-4 col-lg-offset-4">
         <div class="flex-wrapper">
-    <h2>DodajTask</h2>
+            <h2>DodajTask</h2>
 
             <div id="form-area">
-    @using (Html.BeginForm("Create", "Task", FormMethod.Post, new { @class = "form-horizontal" }))
-    {
-        <div class="form-group">
+                @using (Html.BeginForm("Create", "Task", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <div class="form-group">
                         <div class="col-lg-12">
                             @Html.TextBoxFor(m => m.Tytul, new { @placeholder = "Task title", @class = "my-input form-control" })
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <div class="col-lg-12">
                             @Html.TextBoxFor(m => m.OsobaOdpowiedzialna, new { @Value = User.Identity.Name, @class = "my-input form-control" })
-                        </div>       
+                        </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <div class="col-lg-12">
                             @Html.TextBoxFor(m => m.Termin, new { @class = "date-picker my-input form-control", @placeholder = "Termin" })
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <div class="col-lg-12">
                             @Html.TextAreaFor(m => m.Komentarz, new { @placeholder = "Komentarz", @class = "my-input form-control" })
-        </div>
+                        </div>
                     </div>
-                    
+
                     <div>
-                        @Html.HiddenFor(m => m.TaskGroupId, new { @id = "TaskGroupIdRetriever", @class = "my-input form-control") })
+                        @Html.HiddenFor(m => m.TaskGroupId, new { @id = "TaskGroupIdRetriever", @class = "my-input form-control"})
                     </div>
-        <div class="form-group">
+                    <div class="form-group">
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-primary my-button col-lg-12" id="CreateTaskButton">Create</button>
                         </div>
-        </div>
-        
-    }
+                    </div>
+            }
             </div>
 
-    <p>
+            <p>
                 <i class="fa fa-arrow-left">&nbsp;@Html.ActionLink("Powrót", "Zadanie")</i>
-    </p>
-</div>
+            </p>
+        </div>
     </div>
 </div>

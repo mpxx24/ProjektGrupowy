@@ -17,7 +17,6 @@
         var mDiv = $(this).parents("div").slice(1, 2).attr("title");
         $(function () {
             sessionStorage.GroupId = mDiv;
-            $(".jatopierdole").attr("value", mDiv);
         });
     });
 
@@ -29,13 +28,13 @@
         $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
     });
 
-    $(".findParentsId").click(function () {
-        $("#dodajTask").show();
-    });
+    //$(".findParentsId").click(function () {
+    //    $("#dodajTask").show();
+    //});
 
-    $("#CreateTaskButton").click(function () {
-        $("#dodajTask").hide();
-    });
+    //$("#CreateTaskButton").click(function () {
+    //    $("#dodajTask").hide();
+    //});
 
     //$(function () {
     //    $(".task").mousedown(function () {

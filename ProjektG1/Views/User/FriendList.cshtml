@@ -1,0 +1,29 @@
+﻿@using ProjektG1.Models
+@{
+    ViewBag.Title = "FriendList";
+    Layout = "~/Views/Shared/LayoutPage.cshtml";
+}
+
+<h2>FriendList</h2>
+
+@{
+    var context = new TaskContext();
+    var user = context.Users.Single(x => x.Username == User.Identity.Name);
+    
+}
+
+@foreach (var usr in user.Friends)
+{
+    <p>MyFriend: @usr.Username</p>
+}
+
+
+@using(Html.BeginForm("AddFriend", "User"))
+{
+    <input type="text" name="MailAdress"/>
+    <input type="submit" value="Add Friend" />
+}
+
+<p>
+    @Html.ActionLink("Lista Zadań", "Zadanie", "Task")
+</p>
