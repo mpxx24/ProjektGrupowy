@@ -1,27 +1,23 @@
 ﻿$(function () {
 
-    //datapicker 
-    $(".date-picker").datepicker({minDate: 0});
+    $(".date-picker").datepicker({ minDate: 0 });
 
-    //drag and drop
     $(".task").draggable({ revert: "invalid" });
     $(".task-group").droppable();
 
-    //do not show toggler on page load
     $(document).ready(function () {
         $(".task-info").toggle(false);
     });
 
-    //show toggle on click
     $(".button-task-text").click(function () {
         $(this).siblings(".task-info").toggle("blind");
     });
     
-    //get id attribute of parent div
     $(".findParentsId").click(function () {
-        var mDiv = $(this).parents("div").slice(1,2).attr("title");
+        var mDiv = $(this).parents("div").slice(1, 2).attr("title");
         $(function () {
             sessionStorage.GroupId = mDiv;
+            $(".jatopierdole").attr("value", mDiv);
         });
     });
 
@@ -29,6 +25,35 @@
         $("#TaskGroupIdRetriever").attr("value", sessionStorage.GroupId);
     });
 
+    $(function () {
+        $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
+        //if ($("[class='button-task-text'][title='True']")) {
+        //    $(".end-task-icon").toggle()
+        //}
+    });
+
+    $(".findParentsId").click(function () {
+        $("#dodajTask").show();
+    });
+
+    $("#CreateTaskButton").click(function () {
+        $("#dodajTask").hide();
+    });
+
+    //$(function () {
+    //    $(".task").mousedown(function () {
+    //        $(".task-background").css("background-color", "grey").css("border", "1px dashed rgba(0,0,0,.2)");
+    //    });
+    //    $(".task").mouseup(function () {
+    //        $(".task-background").css("background-color", "white").css("border", "none");
+    //    });
+
+    //});
+
+    ////litwa
+    //$(".task-group-name").click(function () {
+           
+    //})
 });
 
 

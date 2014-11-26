@@ -8,9 +8,6 @@ namespace ProjektG1.Controllers
 {
     public class ErrorController : Controller
     {
-        //
-        // GET: /Error/
-
         public ActionResult Error404()
         {
             return View();

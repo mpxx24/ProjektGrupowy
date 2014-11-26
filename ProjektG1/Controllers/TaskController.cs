@@ -15,7 +15,6 @@ namespace ProjektG1.Controllers
 {
     public class TaskController : Controller
     {
-
         public ActionResult Zadanie()
         {
             if (!User.Identity.IsAuthenticated)
@@ -147,7 +146,6 @@ namespace ProjektG1.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            //int uId = Request["input"].Where()
             var context = new TaskContext();
             var doUsuniecia = context.Tasks.Single(z => z.ID == id);
             context.Tasks.Remove(doUsuniecia);
@@ -160,7 +158,15 @@ namespace ProjektG1.Controllers
         {
             var context = new TaskContext();
             var task = context.Tasks.Single(m => m.ID == id);
-            task.Zakonczone = true;
+            if (!task.Zakonczone)
+            {
+                task.Zakonczone = true;
+            }
+            else
+            {
+                task.Zakonczone = false;
+            }
+            
             context.SaveChanges();
             return RedirectToAction("Zadanie", "Task");
         }
