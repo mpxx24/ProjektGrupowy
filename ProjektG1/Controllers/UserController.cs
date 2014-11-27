@@ -113,5 +113,19 @@ namespace ProjektG1.Controllers
             context.SaveChanges();
             return RedirectToAction("FriendList");
         }
+
+        public ActionResult DeleteFriend(string email)
+        {
+            var context = new TaskContext();
+            var uzytkownik = context.Users.Single(m => m.Username == User.Identity.Name);
+
+            var frd = uzytkownik.Friends.Single(m => m.MailAdress == email);
+            uzytkownik.Friends.Remove(frd);
+            frd.Friends.Remove(uzytkownik);
+            context.SaveChanges();
+
+            return RedirectToAction("FriendList");
+
+        }
     }
 }

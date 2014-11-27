@@ -15,6 +15,13 @@
 @foreach (var usr in user.Friends)
 {
     <p>MyFriend: @usr.Username</p>
+    using (Html.BeginForm("DeleteFriend", "User", new {@email = usr.MailAdress}))
+    {
+        <button type="submit" name="ButtonUsun" value="Usun" title="usun"
+                class="icon-button icon-delete btn-task usun">
+            <i class="fa fa-trash"></i>
+        </button>
+    }
 }
 
 
