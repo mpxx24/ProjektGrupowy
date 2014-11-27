@@ -17,7 +17,7 @@
         $(".dropdown-menu").toggle();
     });
     
-    $(".findParentsId").click(function () {
+   $(".findParentsId").click(function () {
         var mDiv = $(this).parents("div").slice(1, 2).attr("title");
         $(function () {
             sessionStorage.GroupId = mDiv;
@@ -33,11 +33,11 @@
     });
 
     $("button[name='ButtonZakoncz']").click(function () {
-        if ($(this).children("i").hasClass("fa-circle-o")) {
+        //if ($(this).children("i").hasClass("fa-circle-o")) {
             $(this).children("i").attr("class","fa fa-calculator");
-        } else {
-            $(this).children("i").attr("class", "fa fa-circle-o");
-        }
+        //} else {
+        //    $(this).children("i").attr("class", "fa fa-circle-o");
+        //}
     });
 
 
@@ -58,11 +58,6 @@
     //    });
 
     //});
-
-    ////litwa
-    //$(".task-group-name").click(function () {
-
-    //})
 });
 
 
