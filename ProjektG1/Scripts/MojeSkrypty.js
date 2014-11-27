@@ -26,12 +26,18 @@
 
     $(function () {
         $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
-        //if ($("[class='button-task-text'][title='True']")) {
-        //    $(".end-task-icon").toggle()
-        //}
     });
 
-    //$(".findParentsId").click(function () {
+    $("button[name='ButtonZakoncz']").click(function () {
+        if ($(this).children("i").hasClass("fa-circle-o")) {
+            $(this).children("i").attr("class","fa fa-calculator");
+        } else {
+            $(this).children("i").attr("class", "fa fa-circle-o");
+        }
+    });
+
+
+//$(".findParentsId").click(function () {
     //    $("#dodajTask").show();
     //});
 
@@ -51,7 +57,7 @@
 
     ////litwa
     //$(".task-group-name").click(function () {
-           
+
     //})
 });
 
