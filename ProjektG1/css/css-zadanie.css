@@ -81,6 +81,7 @@
     z-index: 2;
     cursor: move;
 }
+
 .task-clear {
     border-bottom: 1px solid rgba(0,0,0,0.2);
     content: ' ';
@@ -124,7 +125,7 @@
 }
 
 .task-group-name {
-	text-align: center;
+	text-align: c   enter;
 	font-size: 12pt;
 	color: #000;
 	/*background: #297B48;*/

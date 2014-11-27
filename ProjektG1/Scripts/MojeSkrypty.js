@@ -12,6 +12,16 @@
     $(".button-task-text").click(function () {
         $(this).siblings(".task-info").toggle("blind");
     });
+
+    /* do sprawdzenia kurwa */
+    $(document).ready(function () {
+        $(".dropdown-menu").toggle(false);
+    });
+    $(".dropdown-toggle").click(function () {
+        $(".dropdown-menu").toggle("blind");
+    });
+    /* do sprawdzenia koniec */
+    
     
     $(".findParentsId").click(function () {
         var mDiv = $(this).parents("div").slice(1, 2).attr("title");
