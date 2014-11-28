@@ -1,40 +1,40 @@
-﻿$(function () {
+﻿$(function() {
 
     $(".date-picker").datepicker({ minDate: 0 });
 
     $(".task").draggable({ revert: "invalid" });
     $(".task-group").droppable();
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         $(".task-info").toggle(false);
     });
 
-    $(".button-task-text").click(function () {
+    $(".button-task-text").click(function() {
         $(this).siblings(".task-info").toggle("blind");
     });
-    
-    $(".dropdown-toggle").click(function () {
+
+    $(".dropdown-toggle").click(function() {
         $(".dropdown-menu").toggle();
     });
-    
-   $(".findParentsId").click(function () {
+
+    $(".findParentsId").click(function() {
         var mDiv = $(this).parents("div").slice(1, 2).attr("title");
-        $(function () {
+        $(function() {
             sessionStorage.GroupId = mDiv;
         });
     });
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         $("#TaskGroupIdRetriever").attr("value", sessionStorage.GroupId);
     });
 
-    $(function () {
+    $(function() {
         $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
     });
 
-    $("button[name='ButtonZakoncz']").click(function () {
+    $("button[name='ButtonZakoncz']").click(function() {
         //if ($(this).children("i").hasClass("fa-circle-o")) {
-            $(this).children("i").attr("class","fa fa-calculator");
+        $(this).children("i").attr("class", "fa fa-calculator");
         //} else {
         //    $(this).children("i").attr("class", "fa fa-circle-o");
         //}
