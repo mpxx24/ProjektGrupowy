@@ -40,6 +40,25 @@
         //}
     });
 
+    $("#btnAddNewFriend").click(function ()
+    {
+        $("#newFriendButtonRow").hide();
+        $("#addFriendEditor").show();
+
+        //if ($('#addFriendEditor').is(':visible')) {
+        //    if ($(this).attr("id") !== "addFriendEditor")
+        //    {
+        //        alert("poza");
+        //    }
+        //    alert("jestem widoczny");
+        //}
+    }
+    );
+    $("#addFriendSubmit").click(function () {
+        $("#newFriendButtonRow").show();
+        $("#addFriendEditor").hide();
+    });
+
 
 //$(".findParentsId").click(function () {
     //    $("#dodajTask").show();

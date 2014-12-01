@@ -9,59 +9,80 @@
 
 <section class="section">
     <div class="container">
-            <div class="col-lg-12 col-md-12 flex-wrapper">
-                <div class="col-lg-4">
-                    <h3>Add new friend</h3>
-                    @using (Html.BeginForm("AddFriend", "User"))
+        <div class="col-lg-12 col-md-12 flex-wrapper">
+
+            <div class="col-lg-4">
+                <img class="image" src="~/img/friend_list2.png" alt="friend list image" />
+            </div><!-- end left column -->
+
+            <div class="col-lg-8">
+                <h3>Your friends list</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <td class="col-lg-1">#</td>
+                            <td class="col-lg-2">nick</td>
+                            <td class="col-lg-2">email</td>
+                            <td class="col-lg-1"></td>
+                        </tr>
+                    </thead>
+                    @{ var friendNumber = 1; }
+                    @foreach (var usr in user.Friends)
                     {
-                        <div class="form-group">
-                            <div class="col-lg-8">
-                                <input type="text" name="MailAdress" placeholder="mail address" class="my-input form-control" />
-                            </div>   
-                        </div>
-                        <div class="form-group">
-                            <div class="col-lg-4">
-                                <input type="submit" value="Add" class="btn btn-primary" />
-                            </div>
-                        </div>
-                        
+                        <tr>
+                            <td>@friendNumber</td>
+                            <td>@usr.Username</td>
+                            <td>@usr.MailAdress</td>
+                            <td>
+                                @using (Html.BeginForm("DeleteFriend", "User", new { @email = usr.MailAdress }))
+                                {
+                                    <button type="submit" name="ButtonUsun" value="Usun" title="usun"
+                                            class="icon-button icon-delete btn-task usun animate">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                }
+                            </td>
+                        </tr>
+
+                                friendNumber++;
                     }
-                </div>
-
-                <div class="col-lg-8">
-                    <h3>Your friends list</h3>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <td class="col-lg-1">#</td>
-                                <td class="col-lg-2">nick</td>
-                                <td class="col-lg-2">email</td>
-                                <td class="col-lg-1"></td>
-                            </tr>
-                        </thead>
-                        @foreach (var usr in user.Friends)
+                    <tr id="newFriendButtonRow" style="display: block;">
+                        <td colspan="4">
+                            <button class="icon-button icon-add animate" id="btnAddNewFriend"><i class="fa fa-plus"></i>&nbsp;new friend</button>
+                    </tr>
+                    <tr id="addFriendEditor" class="editor" style="display: none;">
+                        @using(Html.BeginForm("AddFriend","User"))
                         {
-                            <tr>
-                                <td>@usr.UserId</td>
-                                <td>@usr.Username</td>
-                                <td>@usr.MailAdress</td>
-                                <td>
-                                    @using (Html.BeginForm("DeleteFriend", "User", new { @email = usr.MailAdress }))
-                                    {
-                                        <button type="submit" name="ButtonUsun" value="Usun" title="usun"
-                                                class="icon-button icon-delete btn-task usun">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    }
-                                </td>
-                            </tr>
+                            <td colspan="3">
+                                <input type="text" class="my-input form-control" placeholder="mail address" />
+                            </td>
+                            <td><button type="submit" id="addFriendSubmit">Add friend</button></td>
                         }
-                    </table>
-                </div>
+                    </tr>
+                </table>
+                @*do wywalenia*@
+                @*@using (Html.BeginForm("AddFriend", "User"))
+                {
+                    <div class="form-group">
+                        <div class="col-lg-8">
+                        <input type="text" name="MailAdress" placeholder="mail address" class="my-input form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-4">
+                        <button type="submit" class="btn btn-primary">Add friend</button>
+                        </div>
+                    </div>
 
-                <a href="@Url.Action("Zadanie", "Task")" ><i class="fa fa-arrow-left"></i>&nbsp;Back to tasks board</a>
-        </div>
-    </div>
+                }*@
+            </div><!-- end right column -->
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 20px;">
+                <a href="@Url.Action("Zadanie", "Task")"><i class="fa fa-arrow-left"></i>&nbsp;Back to tasks board</a>   
+            </div>
+
+        </div><!-- end flex-wrapper -->     
+    </div><!-- end container -->
 </section>
 
 

@@ -3,11 +3,6 @@
 	color: rgba(234,0,0,0.8);
 }
 
-/*body {
-	background-image: url("img/patt2.png");
-	background-position: center top;
-}*/
-
 #wrapper {
 	margin-top: 50px;
 	/*background: #fff;*/
@@ -20,7 +15,6 @@
     background: rgba(0,0,0,0.2);
 
 }
-
 
 /* ----------------------------------- 
     task group
@@ -118,11 +112,12 @@
     .task-info.text {
         font-size: 10pt;
     }
-.task-info-bar {
-    border-top: 1px solid #888;
-    color: #888;
-    line-height: 1.1em;
-}
+
+    .task-info-bar {
+        border-top: 1px solid #888;
+        color: #888;
+        line-height: 1.1em;
+    }
 
 .task-group-name {
 	text-align: center;
@@ -136,62 +131,6 @@
     font-size: 12pt;
 }
 
-
-/* buttons */
-.btn-tm-small {
-    font-size: 10pt;
-}
-.btn-tm {
-    content: ' ';
-}
-/* delete task button */
-.icon-delete {
-}
-.icon-delete:hover {
-    color: rgba(255,0,0,0.5);
-}
-
-/* add task button*/
-.icon-add-task {
-    position: absolute;
-    left: 20px;
-}
-.icon-add-task:hover {
-    color: green;
-}
-
-/* edit task button */
-.icon-edit {
-
-}
-.icon-edit:hover {
-    color: rgba(0,0,255,0.5);
-}
-
-/* end task button */
-.icon-endtask {
-
-}
-.icon-endtask:hover {
-    color: rgba(0,255,0,0.5);
-}
-
-/* buttons inside control task area */
-.btn-task {
-
-}
-
-.button-task-text {
-    width: 65%;
-    height: auto;
-    border: none;
-    background: none;
-    text-align: left;
-    
-}
-.button-task-text:focus {
-    outline: none;
-}
 
 /* ----------------------------------------------- */
 #draggable {
@@ -227,7 +166,3 @@ div.wJednejLinii {
     right: 5px;
 }
 
-/* EDITOR */
-.editor {
-
-}
