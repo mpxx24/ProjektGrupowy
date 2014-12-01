@@ -13,8 +13,13 @@
         $(this).siblings(".task-info").toggle("blind");
     });
 
-    $(".dropdown-toggle").click(function() {
+    $(".dropdown-toggle").click(function(e) {
         $(".dropdown-menu").toggle();
+        e.stopPropagation();
+    });
+
+    $('html').click(function () {
+        $(".dropdown-menu").hide();
     });
 
     $(".findParentsId").click(function() {
