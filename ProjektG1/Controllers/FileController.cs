@@ -11,9 +11,7 @@ namespace ProjektG1.Controllers
 {
     public class FileController : Controller
     {
-        //
-        // GET: /File/
-        [HttpGet]
+       [HttpGet]
         public FileResult CreateFile()
         {
             var context = new TaskContext();

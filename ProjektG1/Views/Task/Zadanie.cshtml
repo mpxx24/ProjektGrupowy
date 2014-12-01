@@ -84,9 +84,9 @@
                                                     <td class="task-controls-area inside" style="position: absolute; right: 0;">
                                                         @using (Html.BeginForm("EndTask", "Task", new { id = item.ID }))
                                                         {
-                                                            <button type="submit" name="ButtonZakoncz" value="Zakończone" title="zakoncz"
+                                                            <button type="submit" name="ButtonZakoncz" value="@czyZakonczone" title="zakoncz"
                                                                     class="icon-button btn-task icon-endtask">
-                                                                <i class="fa fa-circle-o"></i>
+                                                                <i class="fa fa-square-o" title="zakoncz" id="@czyZakonczone"></i>
                                                             </button>
                                                         }
                                                         @using (Html.BeginForm("EdytujTask", "Task", new { @id = item.ID }))
@@ -135,4 +135,3 @@
 
     <button class="btn btn-primary" onclick="location.href='@Url.Action("CreateFile","File")'" id="create-file-button"><i class="fa fa-file-text-o"></i>&nbsp;save as file...</button>
 
-@*@Html.ActionLink("","CreateFile", "File")*@

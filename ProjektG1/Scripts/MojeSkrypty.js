@@ -32,12 +32,9 @@
         $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
     });
 
-    $("button[name='ButtonZakoncz']").click(function() {
-        //if ($(this).children("i").hasClass("fa-circle-o")) {
-        $(this).children("i").attr("class", "fa fa-calculator");
-        //} else {
-        //    $(this).children("i").attr("class", "fa fa-circle-o");
-        //}
+    $(document).ready(function() {
+        var mojI = $("i[title='zakoncz'][id='True']");
+        mojI.removeClass("fa-square-o").addClass("fa-check-square-o");
     });
 
     $("#btnAddNewFriend").click(function ()
@@ -58,6 +55,7 @@
         $("#newFriendButtonRow").show();
         $("#addFriendEditor").hide();
     });
+
 
 
 //$(".findParentsId").click(function () {
