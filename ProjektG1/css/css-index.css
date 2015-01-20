@@ -305,7 +305,7 @@ input[type="submit"].usun {
 
 /* EDITOR */
 .editor {
-    background: none !important;
+    background: #ddd !important;
 }
 
 /* List group of bootstrap*/

@@ -45,7 +45,7 @@
                             </td>
                         </tr>
 
-                                friendNumber++;
+                    friendNumber++;
                     }
                     <tr id="newFriendButtonRow" style="display: block;">
                         <td>
@@ -56,11 +56,11 @@
                         @using (Html.BeginForm("AddFriend", "User"))
                         {
                             <td colspan="2">
-                                <input type="text" class="my-input form-control" placeholder="mail address" />
+                                <input type="text" name="MailAdress" class="my-input form-control" placeholder="mail address" />
                             </td>
-                            <td><button type="submit" id="addFriendSubmit">Add friend</button></td>
+                            <td><button type="submit" id="addFriendSubmit" class="btn btn-primary my-button">Add friend</button></td>
                         }
-                        <td><button id="closeAddNewFriend" class="icon-button icon-delete animate"><i class="fa fa-close"></i></button></td>
+                        <td><button id="closeAddNewFriend" class="btn icon-button icon-delete animate"><i class="fa fa-close"></i></button></td>
                     </tr>
                 </table>
                 @*do wywalenia*@
