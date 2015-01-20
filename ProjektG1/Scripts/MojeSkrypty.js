@@ -1,43 +1,40 @@
-﻿$(function() {
+﻿$(function () {
 
     $(".date-picker").datepicker({ minDate: 0 });
 
     $(".task").draggable({ revert: "invalid" });
     $(".task-group").droppable();
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $(".task-info").toggle(false);
     });
 
-    $(".button-task-text").click(function() {
+    $(".button-task-text").click(function () {
         $(this).siblings(".task-info").toggle("blind");
     });
 
-    $(".dropdown-toggle").click(function(e) {
+    $(".dropdown-toggle").click(function (e) {
         $(".dropdown-menu").toggle();
         e.stopPropagation();
     });
 
-    $('html').click(function () {
+    $("html").click(function () {
         $(".dropdown-menu").hide();
     });
 
-    $(".findParentsId").click(function() {
+    $(".findParentsId").click(function () {
         var mDiv = $(this).parents("div").slice(1, 2).attr("title");
-        $(function() {
             sessionStorage.GroupId = mDiv;
-        });
-    });
 
-    $(document).ready(function() {
+        });
+
+    $(document).ready(function () {
         $("#TaskGroupIdRetriever").attr("value", sessionStorage.GroupId);
     });
 
-    $(function() {
         $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
-    });
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         var mojI = $("i[title='zakoncz'][id='True']");
         mojI.removeClass("fa-square-o").addClass("fa-check-square-o");
     });
