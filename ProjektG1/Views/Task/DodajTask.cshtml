@@ -11,7 +11,7 @@
     dropdownFriendsList.Add(uzytkownik);
 }
 
-<div  class="container">
+<div class="container">
     <div class="col-lg-4 col-md-6 col-sm-8 col-lg-offset-4 col-md-offset-3 col-sm-offset-2">
         <div class="flex-wrapper">
     <h2>DodajTask</h2>
@@ -23,39 +23,41 @@
             <div class="col-lg-12">
                 @Html.TextBoxFor(m => m.Tytul, new { @placeholder = "Task title", @class = "my-input form-control" })
             </div>
-            </div>
+        </div>
                     
-            <div class="form-group">
-                <div class="col-lg-12">
-                        @Html.DropDownListFor(m => m.OsobaOdpowiedzialna, new SelectList(dropdownFriendsList), new { @class = "my-input form-control" })
-                </div>       
-            </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                    @Html.DropDownListFor(m => m.OsobaOdpowiedzialna, new SelectList(dropdownFriendsList), new { @class = "my-input form-control" })
+            </div>       
+        </div>
                     
-            <div class="form-group">
-                <div class="col-lg-12">
-                    @Html.TextBoxFor(m => m.Termin, new { @class = "date-picker my-input form-control", @placeholder = "Termin" })
-                </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                @Html.TextBoxFor(m => m.Termin, new { @class = "date-picker my-input form-control", @placeholder = "Termin" })
             </div>
+        </div>
                     
-            <div class="form-group">
-                <div class="col-lg-12">
-                    @Html.TextAreaFor(m => m.Komentarz, new { @placeholder = "Komentarz", @class = "my-input form-control" })
-                </div>
+        <div class="form-group">
+            <div class="col-lg-12">
+                @Html.TextAreaFor(m => m.Komentarz, new { @placeholder = "Komentarz", @class = "my-input form-control" })
             </div>
+        </div>
                     
-            <div>
-                    @Html.HiddenFor(m => m.TaskGroupId, new { @id = "TaskGroupIdRetriever", @class = "my-input form-control" })
+        <div>
+                @Html.HiddenFor(m => m.TaskGroupId, new { @id = "TaskGroupIdRetriever", @class = "my-input form-control" })
+        </div>
+        
+        <div class="form-group">
+            <div class="col-lg-12">
+                <button type="submit" class="btn btn-primary my-button col-lg-12 col-md-12 col-sm-12 col-xs-12" id="CreateTaskButton">Create</button>
             </div>
-            <div class="form-group">
-                <div class="col-lg-12">
-                    <button type="submit" class="btn btn-primary my-button col-lg-12 col-md-12 col-sm-12 col-xs-12" id="CreateTaskButton">Create</button>
-                </div>
-            </div>
+        </div>
     }
             </div>
 
     <p>
-            <a href="@Url.Action("Powrót", "Zadanie")" class = "my-link dark" ><i class="fa fa-arrow-left"></i>&nbsp;Powrót</a>
+            <a href="@Url.Action("Powrót", "Zadanie")" ><i class="fa fa-arrow-left"></i>&nbsp;Powrót</a>
     </p>
 </div>
     </div>
+</div>
