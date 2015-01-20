@@ -21,8 +21,11 @@ namespace ProjektG1.Controllers
             dataString += "Group; Title; Added; Deadline; Comment\n";
             foreach (var task in user.Tasks)
             {
-                dataString += task.TaskGroup.GroupName + ";" + task.Tytul + "; " + task.DataDodania
-                    + " ; " + task.Termin + " ;" + task.Komentarz +"\n";
+                if (!task.Zakonczone)
+                {
+                    dataString += task.TaskGroup.GroupName + ";" + task.Tytul + "; " + task.DataDodania
+                    + " ; " + task.Termin + " ;" + task.Komentarz + "\n";
+                }
             }
 
             var byteArray = Encoding.ASCII.GetBytes(dataString);
