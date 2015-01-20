@@ -80,6 +80,13 @@
     //    });
 
     //});
+
+    // zamykanie edytora dodawania nowego przyjaciela
+
+    $("#closeAddNewFriend").click(function () {
+        $("#newFriendButtonRow").hide();
+    });
+
 });
 
 

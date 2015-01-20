@@ -6,6 +6,11 @@
 
 /*@import url('fonts.css');*/
 
+h1, h2, h3, h4, h5 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 html {
     min-height: 100%;
     position: relative;
@@ -301,4 +306,21 @@ input[type="submit"].usun {
 /* EDITOR */
 .editor {
     background: none !important;
+}
+
+/* List group of bootstrap*/
+
+.tm-my-list {
+    background-color: transparent;
+    border: none;
+}
+
+/* Table friend list - adding line if tr is last*/
+
+.table-friend-list tr:nth-last-child(n+3) {
+    border-bottom: 1px solid #ddd;
+}
+.table-friend-list tr:nth-last-child(-n+2)
+{
+    background-color: transparent;
 }

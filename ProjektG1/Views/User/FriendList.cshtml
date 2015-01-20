@@ -17,7 +17,7 @@
 
             <div class="col-lg-8">
                 <h3>Your friends list</h3>
-                <table class="table table-striped">
+                <table class="table table-striped table-friend-list">
                     <thead>
                         <tr>
                             <td class="col-lg-1">#</td>
@@ -47,17 +47,19 @@
                                 friendNumber++;
                     }
                     <tr id="newFriendButtonRow" style="display: block;">
-                        <td colspan="4">
+                        <td>
                             <button class="icon-button icon-add animate" id="btnAddNewFriend"><i class="fa fa-plus"></i>&nbsp;new friend</button>
+                        </td>
                     </tr>
                     <tr id="addFriendEditor" class="editor" style="display: none;">
-                        @using(Html.BeginForm("AddFriend","User"))
+                        @using (Html.BeginForm("AddFriend", "User"))
                         {
-                            <td colspan="3">
+                            <td colspan="2">
                                 <input type="text" class="my-input form-control" placeholder="mail address" />
                             </td>
                             <td><button type="submit" id="addFriendSubmit">Add friend</button></td>
                         }
+                        <td><button id="closeAddNewFriend" class="icon-button icon-delete animate"><i class="fa fa-close"></i></button></td>
                     </tr>
                 </table>
                 @*do wywalenia*@
