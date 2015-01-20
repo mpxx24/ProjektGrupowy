@@ -6,6 +6,11 @@
 
 /*@import url('fonts.css');*/
 
+h1, h2, h3, h4, h5 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 html {
     min-height: 100%;
     position: relative;
@@ -56,7 +61,7 @@ body {
 
 .usernameStyle {
     line-height: 50px;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.8) !important;
     letter-spacing: 1px;
 }
 .usernameStyle:before, .usernameStyle:after {
@@ -147,24 +152,24 @@ footer {
 textarea {
     min-height: 100px;
 }
-input[type="text"].my-input, input[type="password"].my-input, textarea.my-input {
+input[type="text"].my-input, input[type="password"].my-input, textarea.my-input, select.my-input {
 	border: none;
 	outline: rgba(0,0,0,0.2) solid 2px;
 	border-radius: 0;
 }
 
-input[type="text"].my-input:focus, input[type="password"].my-input:focus, textarea.my-input:focus {
+input[type="text"].my-input:focus, input[type="password"].my-input:focus, textarea.my-input:focus, select.my-input:focus {
 	border: none;
 	box-shadow: 0 0 2px #888;
 	color: #888;
 	outline: rgba(0,0,0,0.4) solid 2px;
 }
 
-input[type="text"].my-input:hover, input[type="password"].my-input:hover, textarea.my-input:hover {
+input[type="text"].my-input:hover, input[type="password"].my-input:hover, textarea.my-input:hover.appName select.my-input:hover {
 	outline: rgba(0,0,0,0.4) solid 2px;
 }
 
-/* buttons */
+/* BUTTONS */
 .my-button {
     border-radius: 0 !important;
 }
@@ -184,8 +189,62 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover, textar
     color: rgba(255,255,255,0.5);
 }
 
+.btn-tm-small {
+    font-size: 10pt;
+}
+.btn-tm {
+    content: ' ';
+}
+/* delete task button */
+.icon-delete {
+}
+.icon-delete:hover {
+    color: rgba(255,0,0,0.5);
+}
 
-/* Labels */
+/* add task button*/
+.icon-add {
+    position: absolute;
+    left: 20px;
+}
+.icon-add:hover {
+    color: green;
+}
+
+/* edit task button */
+.icon-edit {
+
+}
+.icon-edit:hover {
+    color: rgba(0,0,255,0.5);
+}
+
+/* end task button */
+.icon-endtask {
+
+}
+.icon-endtask:hover {
+    color: rgba(0,255,0,0.5);
+}
+
+/* buttons inside control task area */
+.btn-task {
+
+}
+
+.button-task-text {
+    width: 65%;
+    height: auto;
+    border: none;
+    background: none;
+    text-align: left;
+    
+}
+.button-task-text:focus {
+    outline: none;
+}/* END BUTTONS*/
+
+/* LABELS */
 .my-label {
 	font-weight: normal;
 	color: rgba(0,0,0,0.8);
@@ -195,28 +254,18 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover, textar
 	color: rgba(0,0,0,0.4) !important;
 }
 
-/* links */
+/* LINKS */
 .my-link {
 	color: rgba(255,255,255,0.4);
 }
 
-.my-link:hover {
-	background: transparent !important;
+.my-link:hover, .my-link:visited, .my-link:active, .my-link:focus {
+	background: none !important;
 	text-decoration: underline !important;
 	color: white !important;
 	text-decoration: none !important;
-    font-weight: bold;
-    transition: all .2s ease-in;
-}
-.dark {
-    color: rgba(0,0,0,1);
-}
-.dark:hover  {
-    background: transparent !important;
-	color: rgba(0,0,0,0.7) !important;
-	text-decoration: none !important;
-    font-weight: bold;
-    transition: all .2s ease-in;
+
+    transition: color .2s ease-in-out;
 }
 
 /* text effects for all */
@@ -236,4 +285,42 @@ input[type="submit"].usun {
     width: 100%;
     height: 100%;
     z-index: 10000;
+}
+
+/* effects */
+.pointer {
+    cursor: pointer;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.animate {
+    transition: all .2s ease-in-out;
+}
+
+/* EDITOR */
+.editor {
+    background: #ddd !important;
+}
+
+/* List group of bootstrap*/
+
+.tm-my-list {
+    background-color: transparent;
+    border: none;
+}
+
+/* Table friend list - adding line if tr is last*/
+
+.table-friend-list tr:nth-last-child(n+3) {
+    border-bottom: 1px solid #ddd;
+}
+.table-friend-list tr:nth-last-child(-n+2)
+{
+    background-color: transparent;
 }

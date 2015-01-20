@@ -23,7 +23,8 @@ namespace ProjektG1.Models
 
         public virtual ICollection<Task> Tasks { get; set; }
         public virtual ICollection<TaskGroup> TaskGroups { get; set; }
-
+        public virtual ICollection<User> Friends { get; set; }
+        
         [DisplayName("Pamiętaj mnie")]
         public bool RememberMe { get; set; }
 

@@ -32,7 +32,7 @@ namespace ProjektG1.Controllers
             else
             {
                 const string bladLog = "WrongLoginInfo";
-                return RedirectToAction("Index", "Home", new {bladLog});
+                return RedirectToAction("Index", "Home", new { bladLog });
             }
         }
 
@@ -96,6 +96,36 @@ namespace ProjektG1.Controllers
             return View(editUser);
         }
 
+        public ActionResult FriendList()
+        {
+            return View();
+        }
 
+        public ActionResult AddFriend()
+        {
+            var context = new TaskContext();
+            var uzytkownik = context.Users.Single(m => m.Username == User.Identity.Name);
+            var email = Request["MailAdress"];
+            var frd =  context.Users.Single(m => m.MailAdress == email);
+            
+            uzytkownik.Friends.Add(frd);
+            frd.Friends.Add(uzytkownik);
+            context.SaveChanges();
+            return RedirectToAction("FriendList");
+        }
+
+        public ActionResult DeleteFriend(string email)
+        {
+            var context = new TaskContext();
+            var uzytkownik = context.Users.Single(m => m.Username == User.Identity.Name);
+
+            var frd = uzytkownik.Friends.Single(m => m.MailAdress == email);
+            uzytkownik.Friends.Remove(frd);
+            frd.Friends.Remove(uzytkownik);
+            context.SaveChanges();
+
+            return RedirectToAction("FriendList");
+
+        }
     }
 }

@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailController.cs" />
@@ -180,12 +181,14 @@
     <Content Include="Global.asax" />
     <Content Include="img\404.jpg" />
     <Content Include="img\bg3.jpg" />
-    <None Include="Scripts\jquery-1.7-vsdoc.js" />
+    <Content Include="img\default-usrer-photo.png" />
+    <Content Include="img\friend_list2.png" />
     <Content Include="img\patt1.png" />
     <Content Include="img\patt2.jpg" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\MojeSkrypty.js" />
-    <Content Include="Scripts\jquery-1.7.js" />
-    <Content Include="Scripts\jquery-1.7.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.1.js" />
     <Content Include="Scripts\jquery-ui.min-1.11.1.js" />
     <Content Include="Scripts\jquery-ui.unobtrusive-2.2.0.js" />
@@ -203,6 +206,9 @@
     <Content Include="Views\Error\Error404.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\User\AddFriend.cshtml" />
+    <Content Include="Views\User\FriendList.cshtml" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

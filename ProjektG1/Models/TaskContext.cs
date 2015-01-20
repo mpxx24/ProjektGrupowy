@@ -16,6 +16,10 @@ namespace ProjektG1.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Entity<User>()
+                .HasMany(x => x.Friends)
+                .WithMany();
         }
+
     }
 }

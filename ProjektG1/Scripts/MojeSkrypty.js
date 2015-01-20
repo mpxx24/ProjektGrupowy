@@ -12,33 +12,61 @@
     $(".button-task-text").click(function () {
         $(this).siblings(".task-info").toggle("blind");
     });
-    
+
+    $(".dropdown-toggle").click(function (e) {
+        $(".dropdown-menu").toggle();
+        e.stopPropagation();
+    });
+
+    $("html").click(function () {
+        $(".dropdown-menu").hide();
+    });
+
     $(".findParentsId").click(function () {
         var mDiv = $(this).parents("div").slice(1, 2).attr("title");
-        $(function () {
             sessionStorage.GroupId = mDiv;
-            $(".jatopierdole").attr("value", mDiv);
+
         });
-    });
 
     $(document).ready(function () {
         $("#TaskGroupIdRetriever").attr("value", sessionStorage.GroupId);
     });
 
-    $(function () {
         $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
-        //if ($("[class='button-task-text'][title='True']")) {
-        //    $(".end-task-icon").toggle()
+
+    $(document).ready(function () {
+        var mojI = $("i[title='zakoncz'][id='True']");
+        mojI.removeClass("fa-square-o").addClass("fa-check-square-o");
+    });
+
+    $("#btnAddNewFriend").click(function ()
+    {
+        $("#newFriendButtonRow").hide();
+        $("#addFriendEditor").show();
+
+        //if ($('#addFriendEditor').is(':visible')) {
+        //    if ($(this).attr("id") !== "addFriendEditor")
+        //    {
+        //        alert("poza");
+        //    }
+        //    alert("jestem widoczny");
         //}
+    }
+    );
+    $("#addFriendSubmit").click(function () {
+        $("#newFriendButtonRow").show();
+        $("#addFriendEditor").hide();
     });
 
-    $(".findParentsId").click(function () {
-        $("#dodajTask").show();
-    });
 
-    $("#CreateTaskButton").click(function () {
-        $("#dodajTask").hide();
-    });
+
+//$(".findParentsId").click(function () {
+    //    $("#dodajTask").show();
+    //});
+
+    //$("#CreateTaskButton").click(function () {
+    //    $("#dodajTask").hide();
+    //});
 
     //$(function () {
     //    $(".task").mousedown(function () {
@@ -50,10 +78,13 @@
 
     //});
 
-    ////litwa
-    //$(".task-group-name").click(function () {
-           
-    //})
+    // zamykanie edytora dodawania nowego przyjaciela
+
+    $("#closeAddNewFriend").click(function () {
+        $("#addFriendEditor").hide();
+        $("#newFriendButtonRow").show();
+    });
+
 });
 
 
