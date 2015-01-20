@@ -18,7 +18,7 @@
         e.stopPropagation();
     });
 
-    $("body").click(function () {
+    $("html").click(function () {
         $(".dropdown-menu").hide();
     });
 
@@ -32,7 +32,7 @@
         $("#TaskGroupIdRetriever").attr("value", sessionStorage.GroupId);
     });
 
-        $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
+    $("[class='button-task-text'][title='True']").css("text-decoration", "line-through");
 
     $(document).ready(function () {
         var mojI = $("i[title='zakoncz'][id='True']");
