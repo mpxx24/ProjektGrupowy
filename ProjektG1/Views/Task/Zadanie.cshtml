@@ -62,7 +62,16 @@
                                         <table style="width: 100%;">
                                             <tbody>
                                                 <tr>
-                                                    <td>
+                                                    <td class="task-controls-area inside" >
+                                                        @using (Html.BeginForm("EndTask", "Task", new { id = item.ID }))
+                                                        {
+                                                            <button type="submit" name="ButtonZakoncz" value="@czyZakonczone" title="zakoncz"
+                                                                    class="icon-button btn-task icon-endtask">
+                                                                <i class="fa fa-square-o" title="zakoncz" id="@czyZakonczone"></i>
+                                                            </button>
+                                                        }
+                                                    </td>
+                                                    <td class="">
                                                         @*<input type=" submit" name="ButtonTask" value="@item.Tytul" id="ButtonTask" class="button-task-text" title="@czyZakonczone" />*@
                                                         <button type="submit" name="ButtonTask" id="ButtonTask" class="button-task-text" title="@czyZakonczone">@item.Tytul</button>
                                                         <div class="task-info">
@@ -82,13 +91,7 @@
                                                         </div>
                                                     </td>
                                                     <td class="task-controls-area inside" style="position: absolute; right: 0;">
-                                                        @using (Html.BeginForm("EndTask", "Task", new { id = item.ID }))
-                                                        {
-                                                            <button type="submit" name="ButtonZakoncz" value="@czyZakonczone" title="zakoncz"
-                                                                    class="icon-button btn-task icon-endtask">
-                                                                <i class="fa fa-square-o" title="zakoncz" id="@czyZakonczone"></i>
-                                                            </button>
-                                                        }
+                                                        
                                                         @using (Html.BeginForm("EdytujTask", "Task", new { @id = item.ID }))
                                                         {
                                                             <button type="submit" name="ButtonEdytuj" value="Edytuj" id=@item.ID
