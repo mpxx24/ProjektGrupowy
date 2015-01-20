@@ -205,8 +205,18 @@ input[type="text"].my-input:hover, input[type="password"].my-input:hover, textar
 	text-decoration: underline !important;
 	color: white !important;
 	text-decoration: none !important;
-
-    transition: color .2s ease-in;
+    font-weight: bold;
+    transition: all .2s ease-in;
+}
+.dark {
+    color: rgba(0,0,0,1);
+}
+.dark:hover  {
+    background: transparent !important;
+	color: rgba(0,0,0,0.7) !important;
+	text-decoration: none !important;
+    font-weight: bold;
+    transition: all .2s ease-in;
 }
 
 /* text effects for all */
